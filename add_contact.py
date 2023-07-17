@@ -25,6 +25,8 @@ class AddContact():
         # Link to add contact name def
         AddContact.name(window)
         
+        # Link to add contact name def
+        AddContact.phone_number(window)
         
     def name(window):
         
@@ -52,6 +54,12 @@ class AddContact():
         suffix_label = Label(window, text="Suffix", fg="black")
         suffix_label.place(x=50, y=233) 
         
+    def phone_number(window):
         
+        # first name textbox
+        phone_num = Entry(window, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        phone_num.place(x=50, y=310)
+        phone_num_label = Label(window, text="Phone Number", fg="black")
+        phone_num_label.place(x=50, y=283) 
     
     

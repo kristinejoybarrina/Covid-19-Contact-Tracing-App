@@ -31,6 +31,9 @@ class User_Interface:
         
         # Link the search_contact button
         User_Interface.search_contact(window)
+        
+        # Link the exit_contact button
+        User_Interface.exit_contact(window)
 
         window.mainloop()
 
@@ -45,6 +48,11 @@ class User_Interface:
         
         search_button = Button(window, text="SEARCH CONTACT")
         search_button.place(x=823, y=250) 
+    
+    # Create exit button 
+    def exit_contact(window):
+        search_button = Button(window, text="EXIT", command=window.destroy)
+        search_button.place(x=860, y=300) 
 
 
 

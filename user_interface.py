@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 from tkinter.font import Font
+from add_contact import Add_Contact
 
 class User_Interface:
 
@@ -15,7 +16,7 @@ class User_Interface:
         label_font = Font(family="Arial", size=15, weight="bold", slant="italic")
         label_font1 = Font(family="Arial", size=12, weight="bold")
         
-        # Create LabelS
+        # Create Labels
         window_label1 = Label(window, text="Hello there,", fg="black", font=label_font)
         window_label1.place(x=760, y=20) 
         
@@ -61,7 +62,7 @@ class User_Interface:
         button_png = ImageTk.PhotoImage(button_img)
 
         
-        add_button = Button(window, image=button_png, border=0, borderwidth=0, command=User_Interface.check_if_working,)
+        add_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=Add_Contact.add_contact_main)
         add_button.image = button_png
         add_button.place(x=803, y=210)
         
@@ -74,7 +75,7 @@ class User_Interface:
         button_img = Image.open("search_contact_button.png")
         button_png = ImageTk.PhotoImage(button_img)
 
-        search_button = Button(window, image=button_png, border=0, borderwidth=0, command=User_Interface.check_if_working,)
+        search_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=User_Interface.check_if_working,)
         search_button.image = button_png
         search_button.place(x=785, y=280) 
     
@@ -84,7 +85,7 @@ class User_Interface:
         button_img = Image.open("exit_button.png")
         button_png = ImageTk.PhotoImage(button_img)
 
-        exit_button = Button(window, image=button_png, border=0, borderwidth=0, command=window.destroy)
+        exit_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=window.destroy)
         exit_button.image = button_png
         exit_button.place(x=810, y=350) 
         

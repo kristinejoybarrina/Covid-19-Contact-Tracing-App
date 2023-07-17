@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 
-class User_Login:
+class User_Interface:
 
     def main():
 
@@ -31,5 +31,5 @@ class User_Login:
     # Call main to start window
     main()
 
-    def login():
-        username = username_entry.get()
+    def add():
+        pass

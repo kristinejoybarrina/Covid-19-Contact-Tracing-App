@@ -5,11 +5,16 @@ from tkinter.font import Font
 class AddContact():
     
     def add_contact_main():
+        
         window = Tk()
         window.title("Trace Corona")
         window.geometry("1000x500")
         window.config(bg="#f0f0f0")
         window.resizable(False,False)
+        
+        # Add scrollbar
+        add_scrollbar = Scrollbar(window)
+        add_scrollbar.pack(side=RIGHT, fill=Y)
         
         label_font = Font(family="Helvetica", size=15, weight="bold")
         
@@ -17,6 +22,7 @@ class AddContact():
         window_label1 = Label(window, text="Contact Tracing Information", fg="black", font=label_font)
         window_label1.place(x=15, y=20) 
         
+        # Link to add contact name def
         AddContact.name(window)
         
         

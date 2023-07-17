@@ -25,7 +25,10 @@ class AddContact():
         # Link to add contact name def
         AddContact.name(window)
         
-        # Link to add contact name def
+        # Link to email def
+        AddContact.email(window)
+        
+        # Link to phone number def
         AddContact.phone_number(window)
         
     def name(window):
@@ -54,12 +57,24 @@ class AddContact():
         suffix_label = Label(window, text="Suffix", fg="black")
         suffix_label.place(x=50, y=233) 
         
+    def email(window):
+        
+        # phone number textbox
+        email = Entry(window, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        email.place(x=50, y=310)
+        email_label = Label(window, text="Email", fg="black")
+        email_label.place(x=50, y=285) 
+
     def phone_number(window):
         
-        # first name textbox
-        phone_num = Entry(window, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        phone_num.place(x=50, y=310)
-        phone_num_label = Label(window, text="Phone Number", fg="black")
-        phone_num_label.place(x=50, y=283) 
-    
+        phone_number = Entry(window, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        phone_number.place(x=50, y=365)
+        phone_number_label = Label(window, text="Phone Number", fg="black")
+        phone_number_label.place(x=50, y=340) 
+        
+ 
+        
+        
+        
+
     

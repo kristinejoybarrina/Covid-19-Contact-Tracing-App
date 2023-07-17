@@ -1,9 +1,9 @@
 from tkinter import *
 from PIL import Image, ImageTk
 from tkinter.font import Font
-from add_contact import Add_Contact
+from add_contact import AddContact
 
-class User_Interface:
+class UserInterface:
 
     def main():
         
@@ -45,13 +45,13 @@ class User_Interface:
         label_background.place(x=0, y=0)
 
         # Link the add_contact button
-        User_Interface.add_contact(window)
+        UserInterface.add_contact(window)
         
         # Link the search_contact button
-        User_Interface.search_contact(window)
+        UserInterface.search_contact(window)
         
         # Link the exit_contact button
-        User_Interface.exit_contact(window)
+        UserInterface.exit_contact(window)
 
         window.mainloop()
 
@@ -62,7 +62,7 @@ class User_Interface:
         button_png = ImageTk.PhotoImage(button_img)
 
         
-        add_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=Add_Contact.add_contact_main)
+        add_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=AddContact.add_contact_main)
         add_button.image = button_png
         add_button.place(x=803, y=210)
         
@@ -75,7 +75,7 @@ class User_Interface:
         button_img = Image.open("search_contact_button.png")
         button_png = ImageTk.PhotoImage(button_img)
 
-        search_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=User_Interface.check_if_working,)
+        search_button = Button(window, image=button_png, activebackground="black", border=0, borderwidth=0, command=UserInterface.check_if_working,)
         search_button.image = button_png
         search_button.place(x=785, y=280) 
     

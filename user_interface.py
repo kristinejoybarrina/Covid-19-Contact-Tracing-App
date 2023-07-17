@@ -4,12 +4,11 @@ from PIL import Image, ImageTk
 class User_Interface:
 
     def main():
-
         window = Tk()
         window.title("Trace Corona")
         window.geometry("1000x500")
         window.config(bg="white")
-        window.resizable(False, False)
+        window.resizable(False,False)
 
         # Open the image from files
         image = Image.open("background.png")
@@ -26,10 +25,18 @@ class User_Interface:
         label_background = Label(window, image=background, bg="white")
         label_background.place(x=-2, y=-2)
 
+        # Link the add_contact button
+        User_Interface.add_contact(window)
+
         window.mainloop()
 
-    # Call main to start window
-    main()
 
-    def add():
-        pass
+    def add_contact(window):
+        
+        # Create add contact button 
+        add_button = Button(window, text="ADD CONTACT")
+        add_button.place(x=835, y=200)
+
+
+
+        

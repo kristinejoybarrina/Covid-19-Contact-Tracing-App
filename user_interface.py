@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 class User_Interface:
 
     def main():
+        
         window = Tk()
         window.title("Trace Corona")
         window.geometry("1000x500")
@@ -27,15 +28,23 @@ class User_Interface:
 
         # Link the add_contact button
         User_Interface.add_contact(window)
+        
+        # Link the search_contact button
+        User_Interface.search_contact(window)
 
         window.mainloop()
 
-
+    # Create add contact button 
     def add_contact(window):
         
-        # Create add contact button 
         add_button = Button(window, text="ADD CONTACT")
         add_button.place(x=835, y=200)
+        
+    # Create add contact button 
+    def search_contact(window):
+        
+        search_button = Button(window, text="SEARCH CONTACT")
+        search_button.place(x=823, y=250) 
 
 
 

@@ -39,8 +39,11 @@ class AddContact:
         label_font = Font(family="Helvetica", size=15, weight="bold")
         
         # Create Labels
-        window_label1 = Label(contact_frame, text="Contact Tracing Information", fg="black", font=label_font)
-        window_label1.pack(anchor="w", padx=15, pady=20) 
+        title_label = Label(contact_frame, text="Contact Tracing Information", fg="black", font=label_font)
+        title_label.pack(anchor="w", padx=15, pady=20) 
+        
+        personal_info_label = Label(contact_frame, text="Personal Contact Information", fg="black")
+        personal_info_label.pack(anchor="w", padx=15, pady=20)
         
         # Link to add contact name def
         AddContact.name(contact_frame)
@@ -57,55 +60,56 @@ class AddContact:
     def name(frame):
         
         # first name textbox
-        first_name = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        first_name.pack(anchor="w", padx=50, pady=5)
         first_label = Label(frame, text="First Name", fg="black")
         first_label.pack(anchor="w", padx=50, pady=5)
+        first_name = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        first_name.pack(anchor="w", padx=50, pady=5)
         
         # middle name textbox
-        middle_name = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        middle_name.pack(anchor="w", padx=50, pady=5)
         middle_label = Label(frame, text="Middle Name", fg="black")
         middle_label.pack(anchor="w", padx=50, pady=5)
-        
+        middle_name = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        middle_name.pack(anchor="w", padx=50, pady=5)
+
         # surname textbox
-        surname = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        surname.pack(anchor="w", padx=50, pady=5)
         surname_label = Label(frame, text="Surname", fg="black")
         surname_label.pack(anchor="w", padx=50, pady=5)
+        surname = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        surname.pack(anchor="w", padx=50, pady=5)
         
         # suffix textbox
-        suffix = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        suffix.pack(anchor="w", padx=50, pady=5)
         suffix_label = Label(frame, text="Suffix", fg="black")
         suffix_label.pack(anchor="w", padx=50, pady=5)
-        
+        suffix = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        suffix.pack(anchor="w", padx=50, pady=5)
+
     def email(frame):
         
         # email textbox
-        email = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        email.pack(anchor="w", padx=50, pady=5)
         email_label = Label(frame, text="Email", fg="black")
         email_label.pack(anchor="w", padx=50, pady=5) 
-        
+        email = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        email.pack(anchor="w", padx=50, pady=5)
+
     def phone_number(frame):
         
         # phone number textbox
-        phone_number = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        phone_number.pack(anchor="w", padx=50, pady=5)
         phone_number_label = Label(frame, text="Phone Number", fg="black")
         phone_number_label.pack(anchor="w", padx=50, pady=5) 
+        phone_number = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        phone_number.pack(anchor="w", padx=50, pady=5)
         
     def address(frame):
         
         # street address textbox
-        street_address = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        street_address.pack(anchor="w", padx=80, pady=5)
         street_address_label = Label(frame, text="Street Address", fg="black")
         street_address_label.pack(anchor="w", padx=80, pady=5) 
+        street_address = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        street_address.pack(anchor="w", padx=80, pady=5)
+
  
         # city textbox
-        city_address = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
-        city_address.pack(anchor="w", padx=80, pady=5)
         city_address_label = Label(frame, text="City", fg="black")
         city_address_label.pack(anchor="w", padx=80, pady=5)
+        city_address = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        city_address.pack(anchor="w", padx=80, pady=5)

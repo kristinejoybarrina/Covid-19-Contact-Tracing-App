@@ -54,8 +54,17 @@ class AddContact:
         # Link to phone number def
         AddContact.phone_number(contact_frame)
         
-        # Link to phone number def
+        # Link to address def
         AddContact.address(contact_frame)
+        
+        # Link to emergency contact def
+        AddContact.emergency_name(contact_frame)
+        
+        # Link to emergency contact def
+        AddContact.condition_ques1(contact_frame)
+        
+        # Link to emergency contact def
+        AddContact.condition_ques2(contact_frame)
         
     def name(frame):
         
@@ -101,6 +110,9 @@ class AddContact:
         
     def address(frame):
         
+        address_label = Label(frame, text="Address", fg="black")
+        address_label.pack(anchor="w", padx=50, pady=15) 
+        
         # street address textbox
         street_address_label = Label(frame, text="Street Address", fg="black")
         street_address_label.pack(anchor="w", padx=80, pady=5) 
@@ -124,3 +136,64 @@ class AddContact:
         postal_label.pack(anchor="w", padx=80, pady=5)
         postal = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         postal.pack(anchor="w", padx=80, pady=5)
+        
+    def emergency_name(frame):
+        
+        emergency_contact_label = Label(frame, text="Emergency Contact Information", fg="black")
+        emergency_contact_label.pack(anchor="w", padx=15, pady=20) 
+        
+        # name textbox
+        name_label = Label(frame, text="Name", fg="black")
+        name_label.pack(anchor="w", padx=50, pady=5) 
+        name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        name.pack(anchor="w", padx=50, pady=5)
+ 
+        #  phone_number textbox
+        phone_number_label = Label(frame, text="Phone Number", fg="black")
+        phone_number_label.pack(anchor="w", padx=50, pady=5)
+        phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        phone_number.pack(anchor="w", padx=50, pady=5)
+
+        # email textbox
+        email_label = Label(frame, text="Email", fg="black")
+        email_label.pack(anchor="w", padx=50, pady=5) 
+        email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        email.pack(anchor="w", padx=50, pady=5)
+ 
+        # address textbox
+        address_label = Label(frame, text="Address", fg="black")
+        address_label.pack(anchor="w", padx=50, pady=5)
+        address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        address.pack(anchor="w", padx=50, pady=5)
+        
+        # relationship textbox
+        relationship_label = Label(frame, text="Relationship", fg="black")
+        relationship_label.pack(anchor="w", padx=50, pady=5)
+        relationship = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        relationship.pack(anchor="w", padx=50, pady=5)
+        
+    def condition_ques1(frame):
+        
+        radio1 = IntVar()
+
+        # Have you recently tested covid-19 textbox
+        quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black")
+        quest1_label.pack(anchor="w", padx=50, pady=5)
+        option1_label = Radiobutton(frame, text="Yes", variable=radio1, value=1)
+        option1_label.pack(anchor="w", padx=50, pady=5)
+        option2_label = Radiobutton(frame, text="No", variable=radio1, value=2)
+        option2_label.pack(anchor="w", padx=50, pady=5)
+
+    def condition_ques2(frame):
+        
+        radio2 = IntVar()
+
+        # Are you recently exposed to someone with covid-19 textbox
+        quest2_label = Label(frame, text="Are you recently exposed to someone with Covid-19?", fg="black")
+        quest2_label.pack(anchor="w", padx=50, pady=5)
+        option3_label = Radiobutton(frame, text="Yes", variable=radio2, value=1)
+        option3_label.pack(anchor="w", padx=50, pady=5)
+        option4_label = Radiobutton(frame, text="No", variable=radio2, value=2)
+        option4_label.pack(anchor="w", padx=50, pady=5)
+
+        

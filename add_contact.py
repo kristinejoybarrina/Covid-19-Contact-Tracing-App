@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.font import Font
 
+#try if git bash is working
 
 class AddContact:
     

@@ -31,7 +31,7 @@ class UserInterface:
         window_label3 = Label(window, text="SELECT AN OPTION", fg="black", font=label_font1)
         window_label3.place(x=795, y=170)
 
-        window_label4 = Label(window, text="______________________", fg="black", font=label_font1)
+        window_label4 = Label(window, text="____________________", fg="black", font=label_font1)
         window_label4.place(x=770, y=75)
 
         # Open the image from files

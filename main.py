@@ -11,7 +11,6 @@ from add_contact import AddContact
 UserInterface.main()
 
 # LET USER INPUT NEEDED DETAILS
-AddContact.add_contact_main()
 
 # SAVE INFORMATION OF USER IN A FILE
 # CREATE SEARCH BUTTON

@@ -1,6 +1,7 @@
+# user_interface.py
 from tkinter import *
-from PIL import Image, ImageTk
 from tkinter.font import Font
+from PIL import Image, ImageTk
 from add_contact import AddContact
 
 class UserInterface:
@@ -64,7 +65,7 @@ class UserInterface:
     def add_contact(window):
         button_img = Image.open("add_contact_button.png")
         button_png = ImageTk.PhotoImage(button_img)
-        add_button = Button(window, image=button_png, border=0, borderwidth=0, command=AddContact.add_contact_main)
+        add_button = Button(window, image=button_png, border=0, borderwidth=0, command=lambda: AddContact(window))
         add_button.image = button_png
         add_button.place(x=803, y=210)
 

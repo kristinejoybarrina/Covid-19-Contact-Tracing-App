@@ -1,17 +1,16 @@
 from tkinter import *
 from tkinter.font import Font
-
-#try if git bash is working
+from PIL import Image, ImageTk
 
 class AddContact:
     
-    def add_contact_main():
-        
-        window = Tk()
-        window.title("Trace Corona")
-        window.geometry("1000x500")
-        window.config(bg="#ECECEC")
-        window.resizable(False, False)
+    def __init__(self, window):
+
+        self.__window = window
+        self.__window.title("Trace Corona")
+        self.__window.geometry("1000x500")
+        self.__window.config(bg="#ECECEC")
+        self.__window.resizable(False, False)
         
         # Create a frame 
         frame = Frame(window, bg="#ffffff")
@@ -40,160 +39,225 @@ class AddContact:
         
         # Create Labels
         title_label = Label(contact_frame, text="Contact Tracing Information", fg="black", font=label_font)
-        title_label.pack(anchor="w", padx=15, pady=20) 
+        title_label.pack(anchor="w", padx=100, pady=20) 
         
         personal_info_label = Label(contact_frame, text="Personal Contact Information", fg="black")
         personal_info_label.pack(anchor="w", padx=15, pady=20)
         
         # Link to add contact name def
-        AddContact.name(contact_frame)
+        self.name(contact_frame)
         
         # Link to email def
-        AddContact.email(contact_frame)
+        self.email(contact_frame)
         
         # Link to phone number def
-        AddContact.phone_number(contact_frame)
+        self.phone_number(contact_frame)
         
         # Link to address def
-        AddContact.address(contact_frame)
+        self.address(contact_frame)
         
         # Link to emergency contact def
-        AddContact.emergency_name(contact_frame)
+        self.emergency_name(contact_frame)
         
         # Link to emergency contact def
-        AddContact.condition_ques1(contact_frame)
+        self.emergency_phone(contact_frame)
         
         # Link to emergency contact def
-        AddContact.condition_ques2(contact_frame)
+        self.emergency_email(contact_frame)
         
-    def name(frame):
+        # Link to emergency contact def
+        self.emergency_address(contact_frame)
+        
+        # Link to emergency contact def
+        self.emergency_relationship(contact_frame)
+        
+        # Link to emergency contact def
+        self.condition_ques1(contact_frame)
+        
+        # Link to emergency contact def
+        self.condition_ques2(contact_frame)
+  
+        # Create a submit button
+        submit_button = Button(contact_frame, text="Submit", command=self.submit_data)
+        submit_button.pack(anchor="w", padx=50, pady=20)
+
+
+
+    def name(self, frame):
         
         # first name textbox
-        first_label = Label(frame, text="First Name", fg="black")
-        first_label.pack(anchor="w", padx=50, pady=5)
-        first_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        first_name.pack(anchor="w", padx=50, pady=5)
+        self.__first_label = Label(frame, text="First Name", fg="black")
+        self.__first_label.pack(anchor="w", padx=50, pady=5)
+        self.__first_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__first_name.pack(anchor="w", padx=50, pady=5)
         
         # middle name textbox
-        middle_label = Label(frame, text="Middle Name", fg="black")
-        middle_label.pack(anchor="w", padx=50, pady=5)
-        middle_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        middle_name.pack(anchor="w", padx=50, pady=5)
+        self.__middle_label = Label(frame, text="Middle Name", fg="black")
+        self.__middle_label.pack(anchor="w", padx=50, pady=5)
+        self.__middle_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__middle_name.pack(anchor="w", padx=50, pady=5)
 
         # surname textbox
-        surname_label = Label(frame, text="Surname", fg="black")
-        surname_label.pack(anchor="w", padx=50, pady=5)
-        surname = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        surname.pack(anchor="w", padx=50, pady=5)
+        self.__surname_label = Label(frame, text="Surname", fg="black")
+        self.__surname_label.pack(anchor="w", padx=50, pady=5)
+        self.__surname = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__surname.pack(anchor="w", padx=50, pady=5)
         
         # suffix textbox
-        suffix_label = Label(frame, text="Suffix", fg="black")
-        suffix_label.pack(anchor="w", padx=50, pady=5)
-        suffix = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        suffix.pack(anchor="w", padx=50, pady=5)
+        self.__suffix_label = Label(frame, text="Suffix", fg="black")
+        self.__suffix_label.pack(anchor="w", padx=50, pady=5)
+        self.__suffix = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__suffix.pack(anchor="w", padx=50, pady=5)
 
-    def email(frame):
+    def email(self, frame):
         
         # email textbox
-        email_label = Label(frame, text="Email", fg="black")
-        email_label.pack(anchor="w", padx=50, pady=5) 
-        email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        email.pack(anchor="w", padx=50, pady=5)
+        self.__email_label = Label(frame, text="Email", fg="black")
+        self.__email_label.pack(anchor="w", padx=50, pady=5) 
+        self.__email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__email.pack(anchor="w", padx=50, pady=5)
 
-    def phone_number(frame):
+    def phone_number(self, frame):
         
         # phone number textbox
-        phone_number_label = Label(frame, text="Phone Number", fg="black")
-        phone_number_label.pack(anchor="w", padx=50, pady=5) 
-        phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        phone_number.pack(anchor="w", padx=50, pady=5)
+        self.__phone_number_label = Label(frame, text="Phone Number", fg="black")
+        self.__phone_number_label.pack(anchor="w", padx=50, pady=5) 
+        self.__phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__phone_number.pack(anchor="w", padx=50, pady=5)
         
-    def address(frame):
+    def address(self, frame):
         
-        address_label = Label(frame, text="Address", fg="black")
-        address_label.pack(anchor="w", padx=50, pady=15) 
+        self.__address_label = Label(frame, text="Address", fg="black")
+        self.__address_label.pack(anchor="w", padx=50, pady=15) 
         
         # street address textbox
-        street_address_label = Label(frame, text="Street Address", fg="black")
-        street_address_label.pack(anchor="w", padx=80, pady=5) 
-        street_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        street_address.pack(anchor="w", padx=80, pady=5)
+        self.__street_address_label = Label(frame, text="Street Address", fg="black")
+        self.__street_address_label.pack(anchor="w", padx=80, pady=5) 
+        self.__street_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__street_address.pack(anchor="w", padx=80, pady=5)
  
         # city textbox
-        city_address_label = Label(frame, text="City", fg="black")
-        city_address_label.pack(anchor="w", padx=80, pady=5)
-        city_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        city_address.pack(anchor="w", padx=80, pady=5)
+        self.__city_address_label = Label(frame, text="City", fg="black")
+        self.__city_address_label.pack(anchor="w", padx=80, pady=5)
+        self.__city_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__city_address.pack(anchor="w", padx=80, pady=5)
 
         # street address textbox
-        province_label = Label(frame, text="Province", fg="black")
-        province_label.pack(anchor="w", padx=80, pady=5) 
-        province = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        province.pack(anchor="w", padx=80, pady=5)
+        self.__province_label = Label(frame, text="Province", fg="black")
+        self.__province_label.pack(anchor="w", padx=80, pady=5) 
+        self.__province = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__province.pack(anchor="w", padx=80, pady=5)
  
         # city textbox
-        postal_label = Label(frame, text="Postal/Zip Code", fg="black")
-        postal_label.pack(anchor="w", padx=80, pady=5)
-        postal = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        postal.pack(anchor="w", padx=80, pady=5)
+        self.__postal_label = Label(frame, text="Postal/Zip Code", fg="black")
+        self.__postal_label.pack(anchor="w", padx=80, pady=5)
+        self.__postal = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__postal.pack(anchor="w", padx=80, pady=5)
         
-    def emergency_name(frame):
+    def emergency_name(self, frame):
         
-        emergency_contact_label = Label(frame, text="Emergency Contact Information", fg="black")
-        emergency_contact_label.pack(anchor="w", padx=15, pady=20) 
+        self.__emergency_contact_label = Label(frame, text="Emergency Contact Information", fg="black")
+        self.__emergency_contact_label.pack(anchor="w", padx=15, pady=20) 
         
         # name textbox
-        name_label = Label(frame, text="Name", fg="black")
-        name_label.pack(anchor="w", padx=50, pady=5) 
-        name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        name.pack(anchor="w", padx=50, pady=5)
+        self.__name_label = Label(frame, text="Name", fg="black")
+        self.__name_label.pack(anchor="w", padx=50, pady=5) 
+        self.__emergency_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__emergency_name.pack(anchor="w", padx=50, pady=5)
  
+    def emergency_phone(self, frame):
+         
         #  phone_number textbox
-        phone_number_label = Label(frame, text="Phone Number", fg="black")
-        phone_number_label.pack(anchor="w", padx=50, pady=5)
-        phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        phone_number.pack(anchor="w", padx=50, pady=5)
+        self.__phone_number_label = Label(frame, text="Phone Number", fg="black")
+        self.__phone_number_label.pack(anchor="w", padx=50, pady=5)
+        self.__emergency_phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__emergency_phone_number.pack(anchor="w", padx=50, pady=5)
 
+    def emergency_email(self, frame):
         # email textbox
-        email_label = Label(frame, text="Email", fg="black")
-        email_label.pack(anchor="w", padx=50, pady=5) 
-        email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        email.pack(anchor="w", padx=50, pady=5)
+        self.__email_label = Label(frame, text="Email", fg="black")
+        self.__email_label.pack(anchor="w", padx=50, pady=5) 
+        self.__emergency_email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__emergency_email.pack(anchor="w", padx=50, pady=5)
  
+    def emergency_address(self, frame):
         # address textbox
-        address_label = Label(frame, text="Address", fg="black")
-        address_label.pack(anchor="w", padx=50, pady=5)
-        address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        address.pack(anchor="w", padx=50, pady=5)
-        
+        self.__address_label = Label(frame, text="Address", fg="black")
+        self.__address_label.pack(anchor="w", padx=50, pady=5)
+        self.__emergency_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__emergency_address.pack(anchor="w", padx=50, pady=5)
+    
+    def emergency_relationship(self, frame):
         # relationship textbox
-        relationship_label = Label(frame, text="Relationship", fg="black")
-        relationship_label.pack(anchor="w", padx=50, pady=5)
-        relationship = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        relationship.pack(anchor="w", padx=50, pady=5)
+        self.__relationship_label = Label(frame, text="Relationship", fg="black")
+        self.__relationship_label.pack(anchor="w", padx=50, pady=5)
+        self.__emergency_relationship = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        self.__emergency_relationship.pack(anchor="w", padx=50, pady=5)
         
-    def condition_ques1(frame):
+    def condition_ques1(self, frame):
         
-        radio1 = IntVar()
+        self.__radio1 = IntVar()
 
         # Have you recently tested covid-19 textbox
-        quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black")
-        quest1_label.pack(anchor="w", padx=50, pady=5)
-        option1_label = Radiobutton(frame, text="Yes", variable=radio1, value=1)
-        option1_label.pack(anchor="w", padx=50, pady=5)
-        option2_label = Radiobutton(frame, text="No", variable=radio1, value=2)
-        option2_label.pack(anchor="w", padx=50, pady=5)
-
-    def condition_ques2(frame):
+        self.__quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black")
+        self.__quest1_label.pack(anchor="w", padx=50, pady=5)
+        self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio1, value=1)
+        self.__option1_label.pack(anchor="w", padx=50, pady=5)
+        self.__option2_label = Radiobutton(frame, text="No", variable=self.__radio1, value=0)
+        self.__option2_label.pack(anchor="w", padx=50, pady=5)
         
-        radio2 = IntVar()
+
+    def condition_ques2(self, frame):
+        
+        self.__radio2 = IntVar()
 
         # Are you recently exposed to someone with covid-19 textbox
-        quest2_label = Label(frame, text="Are you recently exposed to someone with Covid-19?", fg="black")
-        quest2_label.pack(anchor="w", padx=50, pady=5)
-        option3_label = Radiobutton(frame, text="Yes", variable=radio2, value=1)
-        option3_label.pack(anchor="w", padx=50, pady=5)
-        option4_label = Radiobutton(frame, text="No", variable=radio2, value=2)
-        option4_label.pack(anchor="w", padx=50, pady=5)
+        self.__quest2_label = Label(frame, text="Are you recently exposed to someone with Covid-19?", fg="black")
+        self.__quest2_label.pack(anchor="w", padx=50, pady=5)
+        self.__option3_label = Radiobutton(frame, text="Yes", variable=self.__radio2, value=1)
+        self.__option3_label.pack(anchor="w", padx=50, pady=5)
+        self.__option4_label = Radiobutton(frame, text="No", variable=self.__radio2, value=0)
+        self.__option4_label.pack(anchor="w", padx=50, pady=5)
 
+    
+    def submit_data(self):
+        # Get values from entry buttons
+        first_name_value = self.__first_name.get()
+        middle_name_value = self.__middle_name.get()
+        surname_value = self.__surname.get()
+        suffix_value = self.__suffix.get()
+        email_value = self.__email.get()
+        phone_number_value = self.__phone_number.get()
+        street_address_value = self.__street_address.get()
+        city_address_value = self.__city_address.get()
+        province_value = self.__province.get()
+        postal_value = self.__postal.get()
+        emergency_name_value = self.__emergency_name.get()
+        emergency_phone_value = self.__emergency_phone_number.get()
+        emergency_email_value = self.__emergency_email.get()
+        emergency_address_value = self.__emergency_address.get()
+        relationship_value = self.__emergency_relationship.get()
+        condition_ques1_value = self.__radio1.get()
+        condition_ques2_value = self.__radio2.get()
+
+        # Display data
+        print("First Name:", first_name_value)
+        print("Middle Name:", middle_name_value)
+        print("Surname:", surname_value)
+        print("Suffix:", suffix_value)
+        print("Email:", email_value)
+        print("Phone Number:", phone_number_value)
+        print("Street Address:", street_address_value)
+        print("City:", city_address_value)
+        print("Province:", province_value)
+        print("Postal/Zip Code:", postal_value)
+        print("Emergency Contact Name:", emergency_name_value)
+        print("Emergency Contact Phone Number:", emergency_phone_value)
+        print("Emergency Contact Email:", emergency_email_value)
+        print("Emergency Contact Address:", emergency_address_value)
+        print("Relationship:", relationship_value)
+        print("Have you recently tested for Covid-19?:", condition_ques1_value)
+        print("Are you recently exposed to someone with Covid-19?:", condition_ques2_value)
+        
+            
         

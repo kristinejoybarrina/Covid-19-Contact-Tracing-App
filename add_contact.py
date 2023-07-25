@@ -62,25 +62,25 @@ class AddContact:
         # first name textbox
         first_label = Label(frame, text="First Name", fg="black")
         first_label.pack(anchor="w", padx=50, pady=5)
-        first_name = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        first_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         first_name.pack(anchor="w", padx=50, pady=5)
         
         # middle name textbox
         middle_label = Label(frame, text="Middle Name", fg="black")
         middle_label.pack(anchor="w", padx=50, pady=5)
-        middle_name = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        middle_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         middle_name.pack(anchor="w", padx=50, pady=5)
 
         # surname textbox
         surname_label = Label(frame, text="Surname", fg="black")
         surname_label.pack(anchor="w", padx=50, pady=5)
-        surname = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        surname = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         surname.pack(anchor="w", padx=50, pady=5)
         
         # suffix textbox
         suffix_label = Label(frame, text="Suffix", fg="black")
         suffix_label.pack(anchor="w", padx=50, pady=5)
-        suffix = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        suffix = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         suffix.pack(anchor="w", padx=50, pady=5)
 
     def email(frame):
@@ -88,7 +88,7 @@ class AddContact:
         # email textbox
         email_label = Label(frame, text="Email", fg="black")
         email_label.pack(anchor="w", padx=50, pady=5) 
-        email = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         email.pack(anchor="w", padx=50, pady=5)
 
     def phone_number(frame):
@@ -96,7 +96,7 @@ class AddContact:
         # phone number textbox
         phone_number_label = Label(frame, text="Phone Number", fg="black")
         phone_number_label.pack(anchor="w", padx=50, pady=5) 
-        phone_number = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         phone_number.pack(anchor="w", padx=50, pady=5)
         
     def address(frame):
@@ -104,12 +104,23 @@ class AddContact:
         # street address textbox
         street_address_label = Label(frame, text="Street Address", fg="black")
         street_address_label.pack(anchor="w", padx=80, pady=5) 
-        street_address = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        street_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         street_address.pack(anchor="w", padx=80, pady=5)
-
  
         # city textbox
         city_address_label = Label(frame, text="City", fg="black")
         city_address_label.pack(anchor="w", padx=80, pady=5)
-        city_address = Entry(frame, fg="black", width=30, font=("Helvetica", 12), bg="#ECECEC")
+        city_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         city_address.pack(anchor="w", padx=80, pady=5)
+
+        # street address textbox
+        province_label = Label(frame, text="Province", fg="black")
+        province_label.pack(anchor="w", padx=80, pady=5) 
+        province = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        province.pack(anchor="w", padx=80, pady=5)
+ 
+        # city textbox
+        postal_label = Label(frame, text="Postal/Zip Code", fg="black")
+        postal_label.pack(anchor="w", padx=80, pady=5)
+        postal = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
+        postal.pack(anchor="w", padx=80, pady=5)

@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.font import Font
 from PIL import Image, ImageTk
 
+
 class AddContact:
     
     def __init__(self, window):
@@ -22,19 +23,23 @@ class AddContact:
         
         # Create a canvas
         canvas = Canvas(frame, bg="#ffffff", yscrollcommand=scrollbar.set)
-        canvas.pack(side=LEFT, expand=True, fill=BOTH)
+        canvas.pack( expand=True, fill=BOTH)
         
         # Linked the scrollbar to canvas
         scrollbar.config(command=canvas.yview)
         
         # Create a frame inside the canvas for the contact information
         contact_frame = Frame(canvas, bg="#ffffff")
-        contact_frame.pack(fill=BOTH, padx=50, pady=20)
+        contact_frame.pack(fill=BOTH, padx=1000, pady=1000)
+        
+        # Create a contact frame for arguments
+        self.__contact_frame = contact_frame
         
         # Configure the canvas to scroll the contact frame
         canvas.create_window((0, 0), window=contact_frame, anchor="nw")
         contact_frame.bind("<Configure>", lambda e: canvas.config(scrollregion=canvas.bbox("all")))
         
+        # Base format of label
         label_font = Font(family="Helvetica", size=15, weight="bold")
         
         # Create Labels
@@ -44,43 +49,22 @@ class AddContact:
         personal_info_label = Label(contact_frame, text="Personal Contact Information", fg="black")
         personal_info_label.pack(anchor="w", padx=15, pady=20)
         
-        # Link to add contact name def
+        # Link to def functions
         self.name(contact_frame)
-        
-        # Link to email def
         self.email(contact_frame)
-        
-        # Link to phone number def
         self.phone_number(contact_frame)
-        
-        # Link to address def
         self.address(contact_frame)
-        
-        # Link to emergency contact def
         self.emergency_name(contact_frame)
-        
-        # Link to emergency contact def
         self.emergency_phone(contact_frame)
-        
-        # Link to emergency contact def
         self.emergency_email(contact_frame)
-        
-        # Link to emergency contact def
         self.emergency_address(contact_frame)
-        
-        # Link to emergency contact def
         self.emergency_relationship(contact_frame)
-        
-        # Link to emergency contact def
         self.condition_ques1(contact_frame)
-        
-        # Link to emergency contact def
         self.condition_ques2(contact_frame)
-  
-        # Create a submit button
+
+        # Submit button
         submit_button = Button(contact_frame, text="Submit", command=self.submit_data)
         submit_button.pack(anchor="w", padx=50, pady=20)
-
 
 
     def name(self, frame):
@@ -89,11 +73,11 @@ class AddContact:
         self.__first_label = Label(frame, text="First Name", fg="black")
         self.__first_label.pack(anchor="w", padx=50, pady=5)
         self.__first_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
-        self.__first_name.pack(anchor="w", padx=50, pady=5)
+        self.__first_name.pack(anchor="w", padx=50, pady=10)
         
         # middle name textbox
         self.__middle_label = Label(frame, text="Middle Name", fg="black")
-        self.__middle_label.pack(anchor="w", padx=50, pady=5)
+        self.__middle_label.pack(anchor="w", padx=50, pady=15)
         self.__middle_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#ECECEC")
         self.__middle_name.pack(anchor="w", padx=50, pady=5)
 
@@ -206,7 +190,6 @@ class AddContact:
         self.__option2_label = Radiobutton(frame, text="No", variable=self.__radio1, value=0)
         self.__option2_label.pack(anchor="w", padx=50, pady=5)
         
-
     def condition_ques2(self, frame):
         
         self.__radio2 = IntVar()
@@ -219,7 +202,6 @@ class AddContact:
         self.__option4_label = Radiobutton(frame, text="No", variable=self.__radio2, value=0)
         self.__option4_label.pack(anchor="w", padx=50, pady=5)
 
-    
     def submit_data(self):
         # Get values from entry buttons
         first_name_value = self.__first_name.get()
@@ -240,24 +222,24 @@ class AddContact:
         condition_ques1_value = self.__radio1.get()
         condition_ques2_value = self.__radio2.get()
 
-        # Display data
-        print("First Name:", first_name_value)
-        print("Middle Name:", middle_name_value)
-        print("Surname:", surname_value)
-        print("Suffix:", suffix_value)
-        print("Email:", email_value)
-        print("Phone Number:", phone_number_value)
-        print("Street Address:", street_address_value)
-        print("City:", city_address_value)
-        print("Province:", province_value)
-        print("Postal/Zip Code:", postal_value)
-        print("Emergency Contact Name:", emergency_name_value)
-        print("Emergency Contact Phone Number:", emergency_phone_value)
-        print("Emergency Contact Email:", emergency_email_value)
-        print("Emergency Contact Address:", emergency_address_value)
-        print("Relationship:", relationship_value)
-        print("Have you recently tested for Covid-19?:", condition_ques1_value)
-        print("Are you recently exposed to someone with Covid-19?:", condition_ques2_value)
+        # Validate the first name
+        try:
+            first_name_value = int(first_name_value)
+            error_message = "Please enter a valid name."
+            self.show_error_message(error_message)
+            return
         
+        except ValueError:
+            pass
+
+    # Show error message
+    def show_error_message(self, message):
+        
+        if hasattr(self, "__error_label"):
+            self.__error_label.destroy()
             
+        self.__error_label = Label(self.__contact_frame, text=message, fg="red", anchor="e")
+        self.__error_label.pack()
+        self.__error_label.place(x=550, y=180)
+        
         

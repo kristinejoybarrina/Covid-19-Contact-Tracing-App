@@ -111,6 +111,17 @@ class AddContact:
         self.__emergency_relationship_error_label.place(x=135, y=1320)
 
 
+    def save_data_to_file(self, filename):
+        with open(filename, "a") as file:
+            file.write("                                      \n")
+            file.write("Contact Tracing Information\n")
+            file.write("----------------------------------\n")
+            file.write("\nPersonal Contact Information\n")
+            file.write("                                       \n")
+            file.write(f"Name: {self.__first_name.get()} {self.__middle_name.get()} {self.__surname.get()} {self.__suffix.get()}\n")
+            file.write(f"Email: {self.__email.get()}\n")
+            
+            
     def name(self, frame):
         
         self.__name_label = Label(frame, text="Name", fg="black", bg="#c3e7fd")
@@ -377,6 +388,7 @@ class AddContact:
             error_message = "Please state the relationship."
             self.show_error_message(self.__emergency_relationship_error_label, error_message)  
     
+        self.save_data_to_file("contact_tracing_info.txt")
     
     # Method to show error message
     def show_error_message(self, label, message):

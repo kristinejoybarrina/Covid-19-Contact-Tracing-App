@@ -199,3 +199,198 @@ Recently tested for Covid-19: No
 Recent Covid-19 Exposure
 Recently exposed to someone with Covid-19: No
                                        
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09264869485
+Street Address: oks
+City: oks
+Province: oks
+Postal/Zip Code: 1111
+
+Emergency Contact Information
+                                       
+Name: a
+Email: @gmail.com
+Phone Number: 09264869485
+Address: a
+Relationship: a
+                                       
+Symptoms
+Fever
+Recently tested for Covid-19: No
+Recently exposed to someone with Covid-19: No
+                                       
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a aa a 
+Email: @gmail.com
+Phone Number: 09128348283
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+
+Emergency Contact Information
+                                       
+Name: a
+Email: @gmail.com
+Phone Number: 09128348283
+Address: a
+Relationship: a
+                                       
+Symptoms
+Fever
+Recently tested for Covid-19: No
+Recently exposed to someone with Covid-19: No
+                                       
+Contact Tracing Information
+--------------------------
+Name: A A A 
+Email: @gmail.com
+Phone Number: 09128374948
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09128374948
+Address: a
+Relationship: a
+--------------------------
+Symptoms
+--------------------------
+Cough
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Name: A A A 
+Email: @gmail.com
+Phone Number: 09263374859
+Street Address: A
+City: A
+Province: A
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09263374859
+Address: aa
+Relationship: a
+--------------------------
+Symptoms
+--------------------------
+Muscle Ache
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09128337234
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09128337234
+Address: a
+Relationship: a
+--------------------------
+Symptoms
+--------------------------
+Fever
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Name: aa a a 
+Email: @gmail.com
+Phone Number: 09129938475
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: A
+Email: @gmail.com
+Phone Number: 09129938475
+Address: A
+Relationship: A
+                       
+Symptoms
+Fever
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                         
+Contact Tracing Information
+--------------------------
+Personal Contact Information
+                                  
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09129937462
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+                            nEmergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09129937462
+Address: a
+Relationship: a
+                       
+Symptoms
+Loss of Smell
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                         

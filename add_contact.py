@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter.font import Font
-from PIL import Image, ImageTk
-
+import tkinter as tk
+from tkinter import messagebox
 
 class AddContact:
     
@@ -63,10 +63,6 @@ class AddContact:
         self.condition_ques1(contact_frame)
         self.condition_ques2(contact_frame)
 
-        # Submit button
-        submit_button = Button(contact_frame, text="Submit", command=self.submit_data)
-        submit_button.pack(anchor="w", padx=50, pady=20)
-
         # Error Labels
         self.__first_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
         self.__first_name_error_label.place(x=160, y=188)
@@ -110,47 +106,67 @@ class AddContact:
         self.__emergency_relationship_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
         self.__emergency_relationship_error_label.place(x=135, y=1320)
 
-    # save data to a txt file
-    def save_data_to_file(self, filename):
+        # Submit button
+        submit_button = Button(contact_frame, text="Submit", command=self.submit_data)
+        submit_button.pack(anchor="w", padx=50, pady=20)
+
+        # Error label next to the submit button
+        self.__submit_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
+        self.__submit_error_label.pack(anchor="w", padx=50, pady=5)
         
-        with open(filename, "a") as file:
-            file.write("                                      \n")
-            file.write("Contact Tracing Information\n")
-            file.write("----------------------------------\n")
-            file.write("\nPersonal Contact Information\n")
-            file.write("                                       \n")
-            file.write(f"Name: {self.__first_name.get()} {self.__middle_name.get()} {self.__surname.get()} {self.__suffix.get()}\n")
-            file.write(f"Email: {self.__email.get()}\n")
-            file.write(f"Phone Number: {self.__phone_number.get()}\n")
-            file.write(f"Street Address: {self.__street_address.get()}\n")
-            file.write(f"City: {self.__city_address.get()}\n")
-            file.write(f"Province: {self.__province.get()}\n")
-            file.write(f"Postal/Zip Code: {self.__postal.get()}\n")
-            file.write("\nEmergency Contact Information\n")
-            file.write("                                       \n")
-            file.write(f"Name: {self.__emergency_name.get()}\n")
-            file.write(f"Email: {self.__emergency_email.get()}\n")
-            file.write(f"Phone Number: {self.__emergency_phone_number.get()}\n")
-            file.write(f"Address: {self.__emergency_address.get()}\n")
-            file.write(f"Relationship: {self.__emergency_relationship.get()}\n")
-            file.write("                                       \n")
-            file.write(f"Symptoms\n")
-            selected_symptoms = [symptom for symptom in self.__checklist.get().split(", ") if symptom]
-            if "None" in selected_symptoms:
-                file.write("None\n")
-            else:
-                file.write(", ".join(selected_symptoms) + "\n")
-            if self.__radio1.get() == 1:
-                file.write("Recently tested for Covid-19: Yes\n")
-            else:
-                file.write("Recently tested for Covid-19: No\n")
-            if self.__radio2.get() == 1:
-                file.write("Recently exposed to someone with Covid-19: Yes\n")
-            else:
-                file.write("Recently exposed to someone with Covid-19: No\n")
-            file.write("                                       \n")
-            
-    
+        
+        back_button1 = Button(contact_frame, text="Back", command=window.destroy)
+        back_button1.place(x=25, y=50)
+
+        back_button2 = Button(contact_frame, text="Back", command=window.destroy)
+        back_button2.pack(anchor="w", padx=100, pady=0)
+
+
+    def save_data_to_file(self, filename):
+        try:
+            with open(filename, "a") as file:
+                file.write("Contact Tracing Information\n")
+                file.write("--------------------------\n")
+                file.write("Personal Contact Information\n")
+                file.write("                                  \n")
+                file.write(f"Name: {self.__first_name.get()} {self.__middle_name.get()} {self.__surname.get()} {self.__suffix.get()}\n")
+                file.write(f"Email: {self.__email.get()}\n")
+                file.write(f"Phone Number: {self.__phone_number.get()}\n")
+                file.write(f"Street Address: {self.__street_address.get()}\n")
+                file.write(f"City: {self.__city_address.get()}\n")
+                file.write(f"Province: {self.__province.get()}\n")
+                file.write(f"Postal/Zip Code: {self.__postal.get()}\n")
+                file.write("                            \n")
+                file.write("Emergency Contact Information\n")
+                file.write("                                  \n")
+                file.write(f"Name: {self.__emergency_name.get()}\n")
+                file.write(f"Email: {self.__emergency_email.get()}\n")
+                file.write(f"Phone Number: {self.__emergency_phone_number.get()}\n")
+                file.write(f"Address: {self.__emergency_address.get()}\n")
+                file.write(f"Relationship: {self.__emergency_relationship.get()}\n")
+                file.write("                       \n")
+                file.write("Symptoms\n")
+                selected_symptoms = [symptom for symptom in self.__checklist.get().split(", ") if symptom]
+                if "None" in selected_symptoms:
+                    file.write("None\n")
+                else:
+                    file.write(", ".join(selected_symptoms) + "\n")
+                file.write("                                    \n")
+                if self.__radio1.get() == 1:
+                    file.write("Recently tested for Covid-19: Yes\n")
+                else:
+                    file.write("Recently tested for Covid-19: No\n")
+                file.write("                                     \n")
+                if self.__radio2.get() == 1:
+                    file.write("Recently exposed to someone with Covid-19: Yes\n")
+                else:
+                    file.write("Recently exposed to someone with Covid-19: No\n")
+                file.write("                         \n")
+            tk.messagebox.showinfo("Success", "Data has been saved to the file.")
+        except Exception as e:
+            tk.messagebox.showerror("Error", f"Failed to save data: {e}")
+
+
     def name(self, frame):
         
         self.__name_label = Label(frame, text="Name", fg="black", bg="#c3e7fd")
@@ -285,14 +301,13 @@ class AddContact:
             checkbutton = Checkbutton(frame, text=symptom, variable=self.__checklist, onvalue=symptom, offvalue="")
             checkbutton.pack(anchor="w", padx=50, pady=5)
             checkbuttons.append(checkbutton)
-        
-        
+
     def condition_ques1(self, frame):
         
         self.__radio1 = IntVar()
 
         # Have you recently tested covid-19 radiobutton
-        self.__quest1_label = Label(frame, text="Have you recently tested positive for Covid-19?", fg="black", bg="#c3e7fd")
+        self.__quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black", bg="#c3e7fd")
         self.__quest1_label.pack(anchor="w", padx=50, pady=15)
         self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio1, value=1, bg="#c3e7fd")
         self.__option1_label.pack(anchor="w", padx=50, pady=5)
@@ -396,18 +411,44 @@ class AddContact:
             error_message = "Please enter an emergency contact 11-digits phone number starting with '09'."
             self.show_error_message(self.__emergency_phone_number_error_label, error_message)
             
-            # Validate the street address
+        # Validate the street address
         if not emergency_address_value.strip():
             error_message = "Please enter an emergency contact address."
             self.show_error_message(self.__emergency_address_error_label, error_message) 
         
+        # Validate the emergency relationship
         if not emergency_relationship_value.strip():
             error_message = "Please state the relationship."
-            self.show_error_message(self.__emergency_relationship_error_label, error_message)  
-    
-        # save data in a file when submit button is clicked
+            self.show_error_message(self.__emergency_relationship_error_label, error_message)
+        
+            error_labels = [
+                self.__first_name_error_label,
+                self.__middle_name_error_label,
+                self.__surname_error_label,
+                self.__street_address_error_label,
+                self.__city_address_error_label,
+                self.__province_error_label,
+                self.__postal_error_label,
+                self.__email_error_label,
+                self.__phone_number_error_label,
+                self.__emergency_name_error_label,
+                self.__emergency_email_error_label,
+                self.__emergency_phone_number_error_label,
+                self.__emergency_address_error_label,
+                self.__emergency_relationship_error_label
+            ]
+
+            for label in error_labels:
+                if label.cget("text") != "":
+                    # If any error message is displayed, show error next to the submit button
+                    self.__submit_error_label.config(text="Please fix the errors above before submitting.")
+                    return
+
+        # Save data only if all fields pass validation checks
         self.save_data_to_file("contact_tracing_info.txt")
-    
+        self.__submit_error_label.config(text="Data has been saved to the file.")
+        self.clear_all_inputs()
+        
     # Method to show error message
     def show_error_message(self, label, message):
         label.config(text=message)
@@ -428,3 +469,23 @@ class AddContact:
         self.__emergency_phone_number_error_label.config(text="")
         self.__emergency_address_error_label.config(text="")
         self.__emergency_relationship_error_label.config(text="")
+        
+        self.__submit_error_label.config(text="")
+      
+    # Method to clear all inputs in entries
+    def clear_all_inputs(self):
+        self.__first_name.delete(0, END)
+        self.__middle_name.delete(0, END)
+        self.__surname.delete(0, END)
+        self.__suffix.delete(0, END)
+        self.__email.delete(0, END)
+        self.__phone_number.delete(0, END)
+        self.__street_address.delete(0, END)
+        self.__city_address.delete(0, END)
+        self.__province.delete(0, END)
+        self.__postal.delete(0, END)
+        self.__emergency_name.delete(0, END)
+        self.__emergency_phone_number.delete(0, END)
+        self.__emergency_email.delete(0, END)
+        self.__emergency_address.delete(0, END)
+        self.__emergency_relationship.delete(0, END)

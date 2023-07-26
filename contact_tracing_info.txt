@@ -76,3 +76,24 @@ Street Address: a
 City: a
 Province: a
 Postal/Zip Code: 1870
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a a a a
+Email: @gmail.com
+Phone Number: 09185523072
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1870
+
+Emergency Contact Information
+                                       
+Name: a
+Email: @gmail.com
+Phone Number: 09185523072
+Address: a
+Relationship: a

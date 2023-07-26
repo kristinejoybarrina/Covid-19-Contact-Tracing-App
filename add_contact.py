@@ -126,7 +126,15 @@ class AddContact:
             file.write(f"City: {self.__city_address.get()}\n")
             file.write(f"Province: {self.__province.get()}\n")
             file.write(f"Postal/Zip Code: {self.__postal.get()}\n")
+            file.write("\nEmergency Contact Information\n")
+            file.write("                                       \n")
+            file.write(f"Name: {self.__emergency_name.get()}\n")
+            file.write(f"Email: {self.__emergency_email.get()}\n")
+            file.write(f"Phone Number: {self.__emergency_phone_number.get()}\n")
+            file.write(f"Address: {self.__emergency_address.get()}\n")
+            file.write(f"Relationship: {self.__emergency_relationship.get()}\n")
             
+    
     def name(self, frame):
         
         self.__name_label = Label(frame, text="Name", fg="black", bg="#c3e7fd")

@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter.font import Font
 from PIL import Image, ImageTk
 from add_contact import AddContact
+from search_contact import SearchContact
 
 class UserInterface:
 
@@ -77,7 +78,7 @@ class UserInterface:
         button_img = Image.open("search_contact_button.png")
         button_png = ImageTk.PhotoImage(button_img)
 
-        search_button = Button(window, image=button_png, border=0, borderwidth=0, command=UserInterface.check_if_working)
+        search_button = Button(window, image=button_png, border=0, borderwidth=0, command=lambda: SearchContact(window))
         search_button.image = button_png
         search_button.place(x=785, y=282)
 

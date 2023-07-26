@@ -63,3 +63,16 @@ Personal Contact Information
                                        
 Name: a a  
 Email: 
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a a a a
+Email: @gmail.com
+Phone Number: 09185523037
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1870

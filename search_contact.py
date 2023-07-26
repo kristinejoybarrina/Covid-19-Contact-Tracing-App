@@ -36,3 +36,18 @@ class SearchContact:
         # Configure the canvas to scroll the contact frame
         canvas.create_window((0, 0), window=contact_frame, anchor="nw")
         contact_frame.bind("<Configure>", lambda e: canvas.config(scrollregion=canvas.bbox("all")))
+        
+        # Add the search bar and button for name search
+        self.__name_search_label = Label(contact_frame, text="Search Name", fg="black", bg="#c3e7fd")
+        self.__name_search_label.pack(anchor="w", padx=50, pady=15)
+        self.__name_search_label = Label(contact_frame, text="First Name, Middle Name, Surname, Suffix", fg="black", bg="#c3e7fd")
+        self.__name_search_label.pack(anchor="w", padx=50, pady=15)
+        self.__name_search_entry = Entry(contact_frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff", textvariable=None)
+        self.__name_search_entry.pack(anchor="w", padx=50, pady=5)
+        self.__name_search_button = Button(contact_frame, text="Search", command=self.search_contact_by_name)
+        self.__name_search_button.pack(anchor="w", padx=50, pady=5)
+        
+    def search_contact_by_name(self):
+        pass
+    
+    

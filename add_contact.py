@@ -94,6 +94,22 @@ class AddContact:
         
         self.__phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
         self.__phone_number_error_label.place(x=150, y=835)
+        
+        self.__emergency_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
+        self.__emergency_name_error_label.place(x=95, y=990)
+
+        self.__emergency_email_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
+        self.__emergency_email_error_label.place(x=150, y=1070)
+        
+        self.__emergency_phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
+        self.__emergency_phone_number_error_label.place(x=100, y=1155)
+        
+        self.__emergency_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
+        self.__emergency_address_error_label.place(x=112, y=1238)
+        
+        self.__emergency_relationship_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
+        self.__emergency_relationship_error_label.place(x=135, y=1320)
+
 
     def name(self, frame):
         
@@ -211,6 +227,8 @@ class AddContact:
         
         
     def symptoms(self, frame):
+        
+        self.__checklist = StringVar()
 
         # Do you experience any symptoms related to Covid-19 checklist
         self.__quest1_label = Label(frame, text="Do you experience any symptoms related to Covid-19? Check all that apply.", fg="black", bg="#c3e7fd")
@@ -236,6 +254,8 @@ class AddContact:
         self.__option10_label = Checkbutton(frame, text="Sore Throat", bg="#c3e7fd")
         self.__option10_label.pack(anchor="w", padx=50, pady=5)
         self.__option11_label = Checkbutton(frame, text="Diarrhea", bg="#c3e7fd")
+        self.__option11_label.pack(anchor="w", padx=50, pady=5)
+        self.__option11_label = Checkbutton(frame, text="None", bg="#c3e7fd")
         self.__option11_label.pack(anchor="w", padx=50, pady=5)
         
         
@@ -280,7 +300,8 @@ class AddContact:
         emergency_phone_value = self.__emergency_phone_number.get()
         emergency_email_value = self.__emergency_email.get()
         emergency_address_value = self.__emergency_address.get()
-        relationship_value = self.__emergency_relationship.get()
+        emergency_relationship_value = self.__emergency_relationship.get()
+        symptoms_value = self.__checklist.get()
         condition_ques1_value = self.__radio1.get()
         condition_ques2_value = self.__radio2.get()
         
@@ -327,11 +348,35 @@ class AddContact:
             error_message = "Please enter a valid email."
             self.show_error_message(self.__email_error_label, error_message)
 
-            
-        # Validate the surname
+        # Validate the phone number
         if not phone_number_value.isdigit() or len(phone_number_value) != 11 or not phone_number_value.startswith("09"):
             error_message = "Please enter a 11-digits phone number starting with '09'."
             self.show_error_message(self.__phone_number_error_label, error_message)
+            
+        # Validate the emergency contact name
+        if not emergency_name_value.replace(" ", "").isalpha():
+            error_message = "Please enter a valid emergency contact name."
+            self.show_error_message(self.__emergency_name_error_label, error_message)
+            
+        # Validate the emergency contact email
+        if not emergency_email_value.endswith("@gmail.com"):
+            error_message = "Please enter a valid emergency contact email."
+            self.show_error_message(self.__emergency_email_error_label, error_message)
+
+        # Validate the emergency contact phone number
+        if not emergency_phone_value.isdigit() or len(phone_number_value) != 11 or not phone_number_value.startswith("09"):
+            error_message = "Please enter an emergency contact 11-digits phone number starting with '09'."
+            self.show_error_message(self.__emergency_phone_number_error_label, error_message)
+            
+            # Validate the street address
+        if not emergency_address_value.strip():
+            error_message = "Please enter an emergency contact address."
+            self.show_error_message(self.__emergency_address_error_label, error_message) 
+        
+        if not emergency_relationship_value.strip():
+            error_message = "Please state the relationship."
+            self.show_error_message(self.__emergency_relationship_error_label, error_message)  
+    
     
     # Method to show error message
     def show_error_message(self, label, message):
@@ -348,3 +393,8 @@ class AddContact:
         self.__postal_error_label.config(text="")
         self.__email_error_label.config(text="")
         self.__phone_number_error_label.config(text="")
+        self.__emergency_name_error_label.config(text="")
+        self.__emergency_email_error_label.config(text="")
+        self.__emergency_phone_number_error_label.config(text="")
+        self.__emergency_address_error_label.config(text="")
+        self.__emergency_relationship_error_label.config(text="")

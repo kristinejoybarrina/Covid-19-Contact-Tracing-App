@@ -141,3 +141,61 @@ Phone Number: 09185263037
 Address: a
 Relationship: a
                                        
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09827736485
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+
+Emergency Contact Information
+                                       
+Name: a
+Email: @gmail.com
+Phone Number: 09827736485
+Address: a
+Relationship: a
+                                       
+Symptoms
+Cough
+Recently tested positive for Covid-19
+Recently tested for Covid-19: No
+Recent Covid-19 Exposure
+Recently exposed to someone with Covid-19: No
+                                       
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09827736485
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+
+Emergency Contact Information
+                                       
+Name: a
+Email: @gmail.com
+Phone Number: 09827736485
+Address: a
+Relationship: a
+                                       
+Symptoms
+Cough
+Recently tested positive for Covid-19
+Recently tested for Covid-19: No
+Recent Covid-19 Exposure
+Recently exposed to someone with Covid-19: No
+                                       

@@ -134,13 +134,16 @@ class AddContact:
             file.write(f"Address: {self.__emergency_address.get()}\n")
             file.write(f"Relationship: {self.__emergency_relationship.get()}\n")
             file.write("                                       \n")
-            file.write(f"Symptoms: {self.self.__checklist.get()}\n")
-            file.write("Recently tested positive for Covid-19\n")
+            file.write(f"Symptoms\n")
+            selected_symptoms = [symptom for symptom in self.__checklist.get().split(", ") if symptom]
+            if "None" in selected_symptoms:
+                file.write("None\n")
+            else:
+                file.write(", ".join(selected_symptoms) + "\n")
             if self.__radio1.get() == 1:
                 file.write("Recently tested for Covid-19: Yes\n")
             else:
                 file.write("Recently tested for Covid-19: No\n")
-            file.write("Recent Covid-19 Exposure\n")
             if self.__radio2.get() == 1:
                 file.write("Recently exposed to someone with Covid-19: Yes\n")
             else:
@@ -270,30 +273,18 @@ class AddContact:
         # Do you experience any symptoms related to Covid-19 checklist
         self.__quest1_label = Label(frame, text="Do you experience any symptoms related to Covid-19? Check all that apply.", fg="black", bg="#c3e7fd")
         self.__quest1_label.pack(anchor="w", padx=50, pady=15)
-        self.__option1_label = Checkbutton(frame, text="Fever", bg="#c3e7fd")
-        self.__option1_label.pack(anchor="w", padx=50, pady=5)
-        self.__option2_label = Checkbutton(frame, text="Cough", bg="#c3e7fd")
-        self.__option2_label.pack(anchor="w", padx=50, pady=5)
-        self.__option3_label = Checkbutton(frame, text="Shortness of Breath", bg="#c3e7fd")
-        self.__option3_label.pack(anchor="w", padx=50, pady=5)
-        self.__option4_label = Checkbutton(frame, text="Fatigue", bg="#c3e7fd")
-        self.__option4_label.pack(anchor="w", padx=50, pady=5)
-        self.__option5_label = Checkbutton(frame, text="Muscle Ache", bg="#c3e7fd")
-        self.__option5_label.pack(anchor="w", padx=50, pady=5)
-        self.__option6_label = Checkbutton(frame, text="Headache", bg="#c3e7fd")
-        self.__option6_label.pack(anchor="w", padx=50, pady=5)
-        self.__option7_label = Checkbutton(frame, text="Loss of Smell", bg="#c3e7fd")
-        self.__option7_label.pack(anchor="w", padx=50, pady=5)
-        self.__option8_label = Checkbutton(frame, text="Loss of Taste", bg="#c3e7fd")
-        self.__option8_label.pack(anchor="w", padx=50, pady=5)
-        self.__option9_label = Checkbutton(frame, text="Nausea/Vomiting", bg="#c3e7fd")
-        self.__option9_label.pack(anchor="w", padx=50, pady=5)
-        self.__option10_label = Checkbutton(frame, text="Sore Throat", bg="#c3e7fd")
-        self.__option10_label.pack(anchor="w", padx=50, pady=5)
-        self.__option11_label = Checkbutton(frame, text="Diarrhea", bg="#c3e7fd")
-        self.__option11_label.pack(anchor="w", padx=50, pady=5)
-        self.__option11_label = Checkbutton(frame, text="None", bg="#c3e7fd")
-        self.__option11_label.pack(anchor="w", padx=50, pady=5)
+
+        # Create a list of Checkbutton widgets
+        symptoms_list = [
+            "Fever", "Cough", "Shortness of Breath", "Fatigue",
+            "Muscle Ache", "Headache", "Loss of Smell", "Loss of Taste",
+            "Nausea/Vomiting", "Sore Throat", "Diarrhea", "None"
+        ]
+        checkbuttons = []
+        for symptom in symptoms_list:
+            checkbutton = Checkbutton(frame, text=symptom, variable=self.__checklist, onvalue=symptom, offvalue="")
+            checkbutton.pack(anchor="w", padx=50, pady=5)
+            checkbuttons.append(checkbutton)
         
         
     def condition_ques1(self, frame):

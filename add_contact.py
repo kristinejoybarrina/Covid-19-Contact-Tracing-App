@@ -66,6 +66,28 @@ class AddContact:
         submit_button = Button(contact_frame, text="Submit", command=self.submit_data)
         submit_button.pack(anchor="w", padx=50, pady=20)
 
+        # Error Labels
+        self.__first_name_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__first_name_error_label.place(x=160, y=188)
+
+        self.__middle_name_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__middle_name_error_label.pack(anchor="w", padx=50)
+
+        self.__surname_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__surname_error_label.pack(anchor="w", padx=50)
+
+        self.__street_address_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__street_address_error_label.pack(anchor="w", padx=50)
+
+        self.__city_address_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__city_address_error_label.pack(anchor="w", padx=50)
+
+        self.__province_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__province_error_label.pack(anchor="w", padx=50)
+
+        self.__postal_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__postal_error_label.pack(anchor="w", padx=50)
+
 
     def name(self, frame):
         
@@ -205,6 +227,7 @@ class AddContact:
         self.__option4_label = Radiobutton(frame, text="No", variable=self.__radio2, value=0)
         self.__option4_label.pack(anchor="w", padx=50, pady=5)
 
+
     def submit_data(self):
         # Get values from entry buttons
         first_name_value = self.__first_name.get()
@@ -224,55 +247,55 @@ class AddContact:
         relationship_value = self.__emergency_relationship.get()
         condition_ques1_value = self.__radio1.get()
         condition_ques2_value = self.__radio2.get()
+        
+        # Clear all previous error messages
+        self.clear_error_message()
 
         # Validate the first name
-        if not first_name_value.isalpha():
+        if not first_name_value.replace(" ", "").isalpha():
             error_message = "Please enter a valid first name."
-            self.show_error_message(error_message)
-            self.__error_label.place(x=160, y=188)
-            self.__first_name.delete(0, END)
-        else:
-            # Clear error message if input is valid
-            self.clear_error_message()
+            self.show_error_message(self.__first_name_error_label, error_message)
 
         # Validate the middle name
-        if not middle_name_value.isalpha():
+        if not middle_name_value.replace(" ", "").isalpha():
             error_message = "Please enter a valid middle name."
-            self.show_error_message(error_message)
-            self.__error_label.place(x=170, y=250)
-            self.__middle_name.delete(0, END)
-        else:
-            # Clear error message if input is valid
-            self.clear_error_message()
+            self.show_error_message(self.__middle_name_error_label, error_message)
 
         # Validate the surname
-        if not surname_value.isalpha():
+        if not surname_value.replace(" ", "").isalpha():
             error_message = "Please enter a valid surname."
-            self.show_error_message(error_message)
-            self.__error_label.place(x=145, y=312)
-            self.__surname.delete(0, END)
-        else:
-            # Clear error message if input is valid
-            self.clear_error_message()
+            self.show_error_message(self.__surname_error_label, error_message)
 
-    # Show error message
-    def show_error_message(self, message):
-        if hasattr(self, "__error_label"):
-            self.__error_label.destroy()
+        # Validate the street address
+        if not street_address_value.strip():
+            error_message = "Please enter a street address."
+            self.show_error_message(self.__street_address_error_label, error_message)
 
-        self.__error_label = Label(self.__contact_frame, text=message, fg="red", anchor="w")
-        self.__error_label.place(x=100, y=400)
+        # Validate the city address
+        if not city_address_value.replace(" ", "").isalpha():
+            error_message = "Please enter a valid city address."
+            self.show_error_message(self.__city_address_error_label, error_message)
 
-    # Clear error message for a specific field
+        # Validate the province
+        if not province_value.replace(" ", "").isalpha():
+            error_message = "Please enter a valid province."
+            self.show_error_message(self.__province_error_label, error_message)
+
+        # Validate the postal/zip code
+        if not postal_value.isdigit() or len(postal_value) != 4:
+            error_message = "Please enter a valid postal/zip code."
+            self.show_error_message(self.__postal_error_label, error_message)
+
+    # Method to show error message
+    def show_error_message(self, label, message):
+        label.config(text=message)
+
+    # Method to clear error messages
     def clear_error_message(self):
-        if hasattr(self, "__error_label"):
-            self.__error_label.destroy()
-
-    # Clear all error messages
-    def clear_error_messages(self):
-        if hasattr(self, "__error_label"):
-            self.__error_label.destroy()
-
-        for widget in self.__contact_frame.winfo_children():
-            if isinstance(widget, Entry):
-                widget.delete(0, END)
+        self.__first_name_error_label.config(text="")
+        self.__middle_name_error_label.config(text="")
+        self.__surname_error_label.config(text="")
+        self.__street_address_error_label.config(text="")
+        self.__city_address_error_label.config(text="")
+        self.__province_error_label.config(text="")
+        self.__postal_error_label.config(text="")

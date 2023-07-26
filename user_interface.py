@@ -79,7 +79,7 @@ class UserInterface:
 
         search_button = Button(window, image=button_png, border=0, borderwidth=0, command=UserInterface.check_if_working)
         search_button.image = button_png
-        search_button.place(x=785, y=280)
+        search_button.place(x=785, y=282)
 
     # Create exit button 
     def exit_contact(window):

@@ -71,23 +71,28 @@ class AddContact:
         self.__first_name_error_label.place(x=160, y=188)
 
         self.__middle_name_error_label = Label(contact_frame, text="", fg="red", anchor="w")
-        self.__middle_name_error_label.pack(anchor="w", padx=50)
+        self.__middle_name_error_label.place(x=170, y=250)
 
         self.__surname_error_label = Label(contact_frame, text="", fg="red", anchor="w")
-        self.__surname_error_label.pack(anchor="w", padx=50)
+        self.__surname_error_label.place(x=145, y=312)
 
         self.__street_address_error_label = Label(contact_frame, text="", fg="red", anchor="w")
-        self.__street_address_error_label.pack(anchor="w", padx=50)
+        self.__street_address_error_label.place( x=175, y=492)
 
         self.__city_address_error_label = Label(contact_frame, text="", fg="red", anchor="w")
-        self.__city_address_error_label.pack(anchor="w", padx=50)
+        self.__city_address_error_label.place(x=120, y=555)
 
         self.__province_error_label = Label(contact_frame, text="", fg="red", anchor="w")
-        self.__province_error_label.pack(anchor="w", padx=50)
+        self.__province_error_label.place(x=145, y=620)
 
         self.__postal_error_label = Label(contact_frame, text="", fg="red", anchor="w")
-        self.__postal_error_label.pack(anchor="w", padx=50)
+        self.__postal_error_label.place(x=195, y=680)
 
+        self.__email_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__email_error_label.place(x=100, y=753)
+        
+        self.__phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w")
+        self.__phone_number_error_label.place(x=150, y=835)
 
     def name(self, frame):
         
@@ -285,7 +290,18 @@ class AddContact:
         if not postal_value.isdigit() or len(postal_value) != 4:
             error_message = "Please enter a valid postal/zip code."
             self.show_error_message(self.__postal_error_label, error_message)
+            
+        # Validate the email
+        if not email_value.endswith("@gmail.com"):
+            error_message = "Please enter a valid email."
+            self.show_error_message(self.__email_error_label, error_message)
 
+            
+        # Validate the surname
+        if not phone_number_value.isdigit() or len(phone_number_value) != 11 or not phone_number_value.startswith("09"):
+            error_message = "Please enter a 11-digits phone number starting with '09'."
+            self.show_error_message(self.__phone_number_error_label, error_message)
+    
     # Method to show error message
     def show_error_message(self, label, message):
         label.config(text=message)
@@ -299,3 +315,6 @@ class AddContact:
         self.__city_address_error_label.config(text="")
         self.__province_error_label.config(text="")
         self.__postal_error_label.config(text="")
+        self.__email_error_label.config(text="")
+        self.__phone_number_error_label.config(text="")
+        

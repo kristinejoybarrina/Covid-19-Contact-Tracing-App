@@ -59,6 +59,7 @@ class AddContact:
         self.emergency_email(contact_frame)
         self.emergency_address(contact_frame)
         self.emergency_relationship(contact_frame)
+        self.symptoms(contact_frame)
         self.condition_ques1(contact_frame)
         self.condition_ques2(contact_frame)
 
@@ -208,11 +209,41 @@ class AddContact:
         self.__emergency_relationship = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__emergency_relationship.pack(anchor="w", padx=50, pady=5)
         
+        
+    def symptoms(self, frame):
+
+        # Do you experience any symptoms related to Covid-19 checklist
+        self.__quest1_label = Label(frame, text="Do you experience any symptoms related to Covid-19? Check all that apply.", fg="black", bg="#c3e7fd")
+        self.__quest1_label.pack(anchor="w", padx=50, pady=15)
+        self.__option1_label = Checkbutton(frame, text="Fever", bg="#c3e7fd")
+        self.__option1_label.pack(anchor="w", padx=50, pady=5)
+        self.__option2_label = Checkbutton(frame, text="Cough", bg="#c3e7fd")
+        self.__option2_label.pack(anchor="w", padx=50, pady=5)
+        self.__option3_label = Checkbutton(frame, text="Shortness of Breath", bg="#c3e7fd")
+        self.__option3_label.pack(anchor="w", padx=50, pady=5)
+        self.__option4_label = Checkbutton(frame, text="Fatigue", bg="#c3e7fd")
+        self.__option4_label.pack(anchor="w", padx=50, pady=5)
+        self.__option5_label = Checkbutton(frame, text="Muscle Ache", bg="#c3e7fd")
+        self.__option5_label.pack(anchor="w", padx=50, pady=5)
+        self.__option6_label = Checkbutton(frame, text="Headache", bg="#c3e7fd")
+        self.__option6_label.pack(anchor="w", padx=50, pady=5)
+        self.__option7_label = Checkbutton(frame, text="Loss of Smell", bg="#c3e7fd")
+        self.__option7_label.pack(anchor="w", padx=50, pady=5)
+        self.__option8_label = Checkbutton(frame, text="Loss of Taste", bg="#c3e7fd")
+        self.__option8_label.pack(anchor="w", padx=50, pady=5)
+        self.__option9_label = Checkbutton(frame, text="Nausea/Vomiting", bg="#c3e7fd")
+        self.__option9_label.pack(anchor="w", padx=50, pady=5)
+        self.__option10_label = Checkbutton(frame, text="Sore Throat", bg="#c3e7fd")
+        self.__option10_label.pack(anchor="w", padx=50, pady=5)
+        self.__option11_label = Checkbutton(frame, text="Diarrhea", bg="#c3e7fd")
+        self.__option11_label.pack(anchor="w", padx=50, pady=5)
+        
+        
     def condition_ques1(self, frame):
         
         self.__radio1 = IntVar()
 
-        # Have you recently tested covid-19 textbox
+        # Have you recently tested covid-19 radiobutton
         self.__quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black", bg="#c3e7fd")
         self.__quest1_label.pack(anchor="w", padx=50, pady=15)
         self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio1, value=1, bg="#c3e7fd")
@@ -224,7 +255,7 @@ class AddContact:
         
         self.__radio2 = IntVar()
 
-        # Are you recently exposed to someone with covid-19 textbox
+        # Are you recently exposed to someone with covid-19 radiobutton
         self.__quest2_label = Label(frame, text="Are you recently exposed to someone with Covid-19?", fg="black", bg="#c3e7fd")
         self.__quest2_label.pack(anchor="w", padx=50, pady=15)
         self.__option3_label = Radiobutton(frame, text="Yes", variable=self.__radio2, value=1, bg="#c3e7fd")
@@ -317,4 +348,3 @@ class AddContact:
         self.__postal_error_label.config(text="")
         self.__email_error_label.config(text="")
         self.__phone_number_error_label.config(text="")
-        

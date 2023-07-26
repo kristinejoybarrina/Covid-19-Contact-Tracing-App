@@ -227,19 +227,52 @@ class AddContact:
 
         # Validate the first name
         if not first_name_value.isalpha():
-
             error_message = "Please enter a valid first name."
             self.show_error_message(error_message)
-            self.__error_label.place(x=160, y=187)
+            self.__error_label.place(x=160, y=188)
             self.__first_name.delete(0, END)
-            return
-        
         else:
-            pass
+            # Clear error message if input is valid
+            self.clear_error_message()
 
-        self.__error_label.destroy()
-        
+        # Validate the middle name
+        if not middle_name_value.isalpha():
+            error_message = "Please enter a valid middle name."
+            self.show_error_message(error_message)
+            self.__error_label.place(x=170, y=250)
+            self.__middle_name.delete(0, END)
+        else:
+            # Clear error message if input is valid
+            self.clear_error_message()
+
+        # Validate the surname
+        if not surname_value.isalpha():
+            error_message = "Please enter a valid surname."
+            self.show_error_message(error_message)
+            self.__error_label.place(x=145, y=312)
+            self.__surname.delete(0, END)
+        else:
+            # Clear error message if input is valid
+            self.clear_error_message()
+
     # Show error message
     def show_error_message(self, message):
+        if hasattr(self, "__error_label"):
+            self.__error_label.destroy()
 
-        self.__error_label = Label(self.__contact_frame, text=message, fg="red", anchor="e")
+        self.__error_label = Label(self.__contact_frame, text=message, fg="red", anchor="w")
+        self.__error_label.place(x=100, y=400)
+
+    # Clear error message for a specific field
+    def clear_error_message(self):
+        if hasattr(self, "__error_label"):
+            self.__error_label.destroy()
+
+    # Clear all error messages
+    def clear_error_messages(self):
+        if hasattr(self, "__error_label"):
+            self.__error_label.destroy()
+
+        for widget in self.__contact_frame.winfo_children():
+            if isinstance(widget, Entry):
+                widget.delete(0, END)

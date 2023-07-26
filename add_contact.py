@@ -133,6 +133,19 @@ class AddContact:
             file.write(f"Phone Number: {self.__emergency_phone_number.get()}\n")
             file.write(f"Address: {self.__emergency_address.get()}\n")
             file.write(f"Relationship: {self.__emergency_relationship.get()}\n")
+            file.write("                                       \n")
+            file.write(f"Symptoms: {self.self.__checklist.get()}\n")
+            file.write("Recently tested positive for Covid-19\n")
+            if self.__radio1.get() == 1:
+                file.write("Recently tested for Covid-19: Yes\n")
+            else:
+                file.write("Recently tested for Covid-19: No\n")
+            file.write("Recent Covid-19 Exposure\n")
+            if self.__radio2.get() == 1:
+                file.write("Recently exposed to someone with Covid-19: Yes\n")
+            else:
+                file.write("Recently exposed to someone with Covid-19: No\n")
+            file.write("                                       \n")
             
     
     def name(self, frame):
@@ -288,7 +301,7 @@ class AddContact:
         self.__radio1 = IntVar()
 
         # Have you recently tested covid-19 radiobutton
-        self.__quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black", bg="#c3e7fd")
+        self.__quest1_label = Label(frame, text="Have you recently tested positive for Covid-19?", fg="black", bg="#c3e7fd")
         self.__quest1_label.pack(anchor="w", padx=50, pady=15)
         self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio1, value=1, bg="#c3e7fd")
         self.__option1_label.pack(anchor="w", padx=50, pady=5)

@@ -48,6 +48,29 @@ class SearchContact:
         self.__name_search_button.pack(anchor="w", padx=50, pady=5)
         
     def search_contact_by_name(self):
-        pass
-    
+        
+        # Read data from the file
+        with open("contact_tracing_info.txt", "r") as file:
+            data = file.read()
+
+        self.__search_results = []
+        lines = data.split("====================================================================================")
+        for entry in lines:
+            if "Phone Number:" in entry():
+                self.__search_results.append(entry)
+
+        self.display_search_results(self)
+        
+        
+    def display_search_results(self):
+        
+        # Display the search results in the contact frame
+        for result in self.__search_results:
+            result_label = Label(self.__contact_frame, text=result, fg="black", bg="#c3e7fd", justify=LEFT)
+            result_label.pack(anchor="w", padx=50, pady=5)
+            
+            # Add a back button to return to search
+            self.__back_button = Button(self.__contact_frame, text="Back to Search", command=None)
+            self.__back_button.pack(anchor="w", padx=50, pady=5)    
+        
     

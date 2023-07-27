@@ -394,3 +394,288 @@ Recently tested for Covid-19: No
                                      
 Recently exposed to someone with Covid-19: No
                          
+                                      
+Contact Tracing Information
+----------------------------------
+
+Personal Contact Information
+                                       
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09283374655
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+
+Emergency Contact Information
+                                       
+Name: aaasa
+Email: @gmail.com
+Phone Number: 09283374655
+Address: aa
+Relationship: aa
+                                       
+Symptoms
+Contact Tracing Information
+--------------------------
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09185523037
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09185523037
+Address: s
+Relationship: s
+--------------------------
+Symptoms
+--------------------------
+Fever
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09128836472
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09128836472
+Address: a
+Relationship: a
+--------------------------
+Symptoms
+--------------------------
+Loss of Taste
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09283374859
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09283374859
+Address: a
+Relationship: a
+--------------------------
+Symptoms
+--------------------------
+Yes
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09298372734
+Street Address: a
+City: a
+Province: a1
+Postal/Zip Code: 1111
+--------------------------
+Emergency Contact Information
+--------------------------
+Name: a
+Email: @gmail.com
+Phone Number: 09298372734
+Address: s
+Relationship: s
+--------------------------
+Symptoms
+--------------------------
+None
+--------------------------
+Recent Covid-19 Testing
+--------------------------
+Recently tested for Covid-19: No
+--------------------------
+Recent Covid-19 Exposure
+--------------------------
+Recently exposed to someone with Covid-19: No
+==========================
+Contact Tracing Information
+--------------------------
+Personal Contact Information
+                                  
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09283374656
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+                            
+Emergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09283374656
+Address: a
+Relationship: a
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                         
+Contact Tracing Information
+--------------------------
+Personal Contact Information
+                                  
+Name: Kristin hsajsha kssja kasj dlsd dajhsaa 
+Email: @gmail.com
+Phone Number: 09128741162
+Street Address: sasas
+City: sasa
+Province: sas
+Postal/Zip Code: 1111
+                            
+Emergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09128741162
+Address: aas
+Relationship: asas
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                         
+
+--------------------------
+Contact Tracing Information
+                                  
+Personal Contact Information
+                                  
+Name: s s s 
+Email: @gmail.com
+Phone Number: 09283374653
+Street Address: s
+City: s
+Province: s
+Postal/Zip Code: 1111
+                            
+Emergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09283374653
+Address: a
+Relationship: a
+                       
+--------------------------
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                         
+
+--------------------------
+Contact Tracing Information
+                                  
+Personal Contact Information
+                                  
+Name: a a a 
+Email: @gmail.com
+Phone Number: 1992929233
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 11111
+                            
+Emergency Contact Information
+                                  
+Name: A
+Email: @gmail.com
+Phone Number: 12212
+Address: assasas
+Relationship: asas
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                       
+--------------------------
+                         
+
+--------------------------
+Contact Tracing Information
+                                  
+Personal Contact Information
+                                  
+Name:    
+Email: 
+Phone Number: 
+Street Address: 
+City: 
+Province: 
+Postal/Zip Code: 
+                            
+Emergency Contact Information
+                                  
+Name: 
+Email: 
+Phone Number: 
+Address: 
+Relationship: 
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                       
+--------------------------
+                         
+

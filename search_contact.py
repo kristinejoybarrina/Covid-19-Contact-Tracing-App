@@ -47,19 +47,37 @@ class SearchContact:
         self.__name_search_button = Button(contact_frame, text="Search", command=self.search_contact_by_name)
         self.__name_search_button.pack(anchor="w", padx=50, pady=5)
         
-    def search_contact_by_name(self):
+        self.__name_search_criteria = StringVar()
         
+        
+    def search_contact_by_name(self):
+        search_criteria = self.__name_search_criteria.get()
+        
+        # Clear the current search results
+        for widget in self.__contact_frame.winfo_children():
+            widget.destroy()
+
         # Read data from the file
         with open("contact_tracing_info.txt", "r") as file:
             data = file.read()
 
-        self.__search_results = []
-        lines = data.split("====================================================================================")
+        # Filter the data based on the search criteria
+        search_results = []
+        lines = data.split("===================================================================")
         for entry in lines:
-            if "Phone Number:" in entry():
-                self.__search_results.append(entry)
-
-        self.display_search_results(self)
+            if "Name:" in entry and search_criteria.lower() in entry.lower():
+                search_results.append(entry)
+                
+        if not search_results:
+            no_results_label = Label(self.__contact_frame, text="No matching contact found.", fg="black", bg="#c3e7fd")
+            no_results_label.pack(anchor="w", padx=50, pady=5)
+            
+            # Add a back button to return to search if it doesn't already exist
+            if not hasattr(self, "__back_button"):
+                self.__back_button = Button(self.__contact_frame, text="Back to Search", command=self.go_back_to_search)
+                self.__back_button.pack(anchor="w", padx=50, pady=5)
+        else:
+            self.display_search_results(search_results)
         
     def go_back_to_search(self):
         
@@ -78,15 +96,15 @@ class SearchContact:
         self.__name_search_button.pack(anchor="w", padx=50, pady=5)
 
 
-    def display_search_results(self):
+    def display_search_results(self, search_results):
         
         # Display the search results in the contact frame
-        for result in self.__search_results:
+        for result in search_results:
             result_label = Label(self.__contact_frame, text=result, fg="black", bg="#c3e7fd", justify=LEFT)
             result_label.pack(anchor="w", padx=50, pady=5)
             
             # Add a back button to return to search
-            self.__back_button = Button(self.__contact_frame, text="Back to Search", command=None)
-            self.__back_button.pack(anchor="w", padx=50, pady=5)    
+            self.__back_button = Button(self.__contact_frame, text="Back to Search", command=self.go_back_to_search)
+            self.__back_button.pack(anchor="w", padx=50, pady=5)  
         
     

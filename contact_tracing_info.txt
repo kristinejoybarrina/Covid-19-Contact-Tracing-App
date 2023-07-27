@@ -679,3 +679,93 @@ Recently exposed to someone with Covid-19: No
 --------------------------
                          
 
+--------------------------
+Contact Tracing Information
+                                  
+Personal Contact Information
+                                  
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09182273647
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+                            
+Emergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09182273647
+Address: a
+Relationship: a
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                       
+--------------------------
+                         
+
+--------------------------
+Contact Tracing Information
+                                  
+Personal Contact Information
+                                  
+Name: a a a 
+Email: @gmail.com
+Phone Number: 09273374821
+Street Address: a
+City: a
+Province: a
+Postal/Zip Code: 1111
+                            
+Emergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09273374821
+Address: s
+Relationship: s
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: No
+                                     
+Recently exposed to someone with Covid-19: No
+                       
+--------------------------
+                         
+
+--------------------------
+Contact Tracing Information
+                                  
+Personal Contact Information
+                                  
+Name: Jamal Princillo Barrina 
+Email: @gmail.com
+Phone Number: 09283348591
+Street Address: q
+City: a
+Province: a
+Postal/Zip Code: 1870
+                            
+Emergency Contact Information
+                                  
+Name: a
+Email: @gmail.com
+Phone Number: 09283348591
+Address: a
+Relationship: a
+                       
+Have symptoms of Covid-19: No
+                                    
+Recently tested for Covid-19: Yes
+                                     
+Recently exposed to someone with Covid-19: Yes
+                       
+--------------------------
+                         
+

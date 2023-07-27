@@ -156,6 +156,7 @@ class SearchContact:
         canvas.create_window((0, 0), window=self.__contact_frame, anchor="nw")
         self.__contact_frame.bind("<Configure>", lambda e: canvas.config(scrollregion=canvas.bbox("all")))
 
+
     def display_search_results(self, search_results):
         # Display the search results in the contact frame
         for result in search_results:

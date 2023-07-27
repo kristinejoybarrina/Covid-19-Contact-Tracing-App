@@ -3,7 +3,6 @@
 # Creating a program that allows the user to input information that will be used for Covid-19 tracing
 
 from user_interface import UserInterface
-from add_contact import AddContact
 
 # PSEUDOCODE
 

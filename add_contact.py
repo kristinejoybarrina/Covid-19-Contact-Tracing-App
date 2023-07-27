@@ -37,14 +37,25 @@ class AddContact:
         contact_frame.bind("<Configure>", lambda e: canvas.config(scrollregion=canvas.bbox("all")))
         
         # Base format of label
-        label_font = Font(family="Helvetica", size=15, weight="bold")
+        label_font = Font(family="Arial Black", size=20, weight="bold", slant="italic")
+        
+        # Base format of label
+        self.__label_font2 = Font(family="Helvetica", size=10, weight="bold", slant="italic")
+       
+        label_font3 = Font(family="Helvetica", size=8)
+        self.__label_font4 = Font(family="Helvetica", size=10, weight="bold")
+        self.__label_font5 = Font(family="Helvetica", size=12, weight="bold")
+        
         
         # Create Labels
-        title_label = Label(contact_frame, text="Contact Tracing Information", fg="black", font=label_font, bg="#c3e7fd")
+        title_label = Label(contact_frame, text="Contact Tracing Information", font=label_font, fg="black", bg="#c3e7fd")
         title_label.pack(anchor="w", padx=100, pady=20) 
         
-        personal_info_label = Label(contact_frame, text="Personal Contact Information", fg="black", bg="#c3e7fd")
+        personal_info_label = Label(contact_frame, text="Personal Contact Information", fg="#00219f", bg="#c3e7fd", font=self.__label_font5)
         personal_info_label.pack(anchor="w", padx=15, pady=20)
+        
+        window_label = Label(contact_frame, text="_______________________________________________________________", fg="black", font=label_font, bg="#c3e7fd")
+        window_label.place(x=20, y=55)
         
         # Link to def functions
         self.name(contact_frame)
@@ -52,59 +63,60 @@ class AddContact:
         self.email(contact_frame)
         self.phone_number(contact_frame)
         self.emergency_name(contact_frame)
-        self.emergency_phone(contact_frame)
         self.emergency_email(contact_frame)
+        self.emergency_phone(contact_frame)
         self.emergency_address(contact_frame)
         self.emergency_relationship(contact_frame)
         self.symptoms(contact_frame)
         self.condition_ques1(contact_frame)
         self.condition_ques2(contact_frame)
+        self.data_privacy(contact_frame)
 
         # Error Labels
-        self.__first_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__first_name_error_label.place(x=160, y=188)
+        self.__first_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__first_name_error_label.place(x=180, y=209)
 
-        self.__middle_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__middle_name_error_label.place(x=170, y=250)
+        self.__middle_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__middle_name_error_label.place(x=170, y=271)
 
-        self.__surname_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__surname_error_label.place(x=145, y=312)
+        self.__surname_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__surname_error_label.place(x=145, y=334)
 
-        self.__street_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__street_address_error_label.place(x=175, y=492)
+        self.__street_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__street_address_error_label.place(x=175, y=516)
 
-        self.__city_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__city_address_error_label.place(x=120, y=555)
+        self.__city_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__city_address_error_label.place(x=120, y=579)
 
-        self.__province_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__province_error_label.place(x=145, y=620)
+        self.__province_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__province_error_label.place(x=145, y=643)
 
-        self.__postal_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__postal_error_label.place(x=195, y=680)
+        self.__postal_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__postal_error_label.place(x=195, y=705)
 
-        self.__email_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__email_error_label.place(x=100, y=753)
+        self.__email_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__email_error_label.place(x=100, y=780)
         
-        self.__phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__phone_number_error_label.place(x=150, y=835)
+        self.__phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__phone_number_error_label.place(x=150, y=863)
         
-        self.__emergency_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__emergency_name_error_label.place(x=95, y=990)
+        self.__emergency_name_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__emergency_name_error_label.place(x=95, y=1025)
 
-        self.__emergency_email_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__emergency_email_error_label.place(x=100, y=1155)
+        self.__emergency_email_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__emergency_email_error_label.place(x=100, y=1108)
         
-        self.__emergency_phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__emergency_phone_number_error_label.place(x=150, y=1070)
+        self.__emergency_phone_number_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__emergency_phone_number_error_label.place(x=150, y=1191)
         
-        self.__emergency_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__emergency_address_error_label.place(x=112, y=1238)
+        self.__emergency_address_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__emergency_address_error_label.place(x=112, y=1274)
         
-        self.__emergency_relationship_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
-        self.__emergency_relationship_error_label.place(x=135, y=1320)
+        self.__emergency_relationship_error_label = Label(contact_frame, text="", fg="red", anchor="w", font=label_font3, bg="#c3e7fd")
+        self.__emergency_relationship_error_label.place(x=135, y=1357)
 
         # Submit button
-        submit_button = Button(contact_frame, text="Submit", command=self.submit_data)
+        submit_button = Button(contact_frame, text="Submit", width=10, command=self.submit_data)
         submit_button.pack(anchor="w", padx=50, pady=20)
 
         # Error label next to the submit button
@@ -115,7 +127,7 @@ class AddContact:
         back_button1.place(x=20, y=25)
 
         back_button2 = Button(contact_frame, text="Exit",width=10, activebackground="white", bg="red", fg="white", command=window.destroy)
-        back_button2.pack(anchor="w", padx=100, pady=10)
+        back_button2.place(x=200, y=1850)
 
 
     def save_data_to_file(self, filename):
@@ -166,29 +178,29 @@ class AddContact:
 
     def name(self, frame):
         
-        self.__name_label = Label(frame, text="Name", fg="black", bg="#c3e7fd")
+        self.__name_label = Label(frame, text="Name", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__name_label.pack(anchor="w", padx=50, pady=15) 
         
         # first name textbox
-        self.__first_label = Label(frame, text="First Name", fg="black", bg="#c3e7fd")
+        self.__first_label = Label(frame, text="First Name", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__first_label.pack(anchor="w", padx=80, pady=5)
         self.__first_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__first_name.pack(anchor="w", padx=80, pady=5)
         
         # middle name textbox
-        self.__middle_label = Label(frame, text="Middle Name", fg="black", bg="#c3e7fd")
+        self.__middle_label = Label(frame, text="Middle Name", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__middle_label.pack(anchor="w", padx=80, pady=5)
         self.__middle_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__middle_name.pack(anchor="w", padx=80, pady=5)
 
         # surname textbox
-        self.__surname_label = Label(frame, text="Surname", fg="black", bg="#c3e7fd")
+        self.__surname_label = Label(frame, text="Surname", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__surname_label.pack(anchor="w", padx=80, pady=5)
         self.__surname = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__surname.pack(anchor="w", padx=80, pady=5)
         
         # suffix textbox
-        self.__suffix_label = Label(frame, text="Suffix", fg="black", bg="#c3e7fd")
+        self.__suffix_label = Label(frame, text="Suffix", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__suffix_label.pack(anchor="w", padx=80, pady=5)
         self.__suffix = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__suffix.pack(anchor="w", padx=80, pady=5)
@@ -196,7 +208,7 @@ class AddContact:
     def email(self, frame):
         
         # email textbox
-        self.__email_label = Label(frame, text="Email", fg="black", bg="#c3e7fd")
+        self.__email_label = Label(frame, text="Email", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__email_label.pack(anchor="w", padx=50, pady=15) 
         self.__email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__email.pack(anchor="w", padx=50, pady=5)
@@ -204,54 +216,54 @@ class AddContact:
     def phone_number(self, frame):
         
         # phone number textbox
-        self.__phone_number_label = Label(frame, text="Phone Number", fg="black", bg="#c3e7fd")
+        self.__phone_number_label = Label(frame, text="Phone Number", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__phone_number_label.pack(anchor="w", padx=50, pady=15) 
         self.__phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__phone_number.pack(anchor="w", padx=50, pady=5)
         
     def address(self, frame):
         
-        self.__address_label = Label(frame, text="Address", fg="black", bg="#c3e7fd")
+        self.__address_label = Label(frame, text="Address", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__address_label.pack(anchor="w", padx=50, pady=15) 
         
         # street address textbox
-        self.__street_address_label = Label(frame, text="Street Address", fg="black", bg="#c3e7fd")
+        self.__street_address_label = Label(frame, text="Street Line", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__street_address_label.pack(anchor="w", padx=80, pady=5) 
         self.__street_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__street_address.pack(anchor="w", padx=80, pady=5)
  
         # city textbox
-        self.__city_address_label = Label(frame, text="City", fg="black", bg="#c3e7fd")
+        self.__city_address_label = Label(frame, text="City", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__city_address_label.pack(anchor="w", padx=80, pady=5)
         self.__city_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__city_address.pack(anchor="w", padx=80, pady=5)
 
         # street address textbox
-        self.__province_label = Label(frame, text="Province", fg="black", bg="#c3e7fd")
+        self.__province_label = Label(frame, text="Province", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__province_label.pack(anchor="w", padx=80, pady=5) 
         self.__province = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__province.pack(anchor="w", padx=80, pady=5)
  
         # city textbox
-        self.__postal_label = Label(frame, text="Postal/Zip Code", fg="black", bg="#c3e7fd")
+        self.__postal_label = Label(frame, text="Postal/Zip Code", fg="black", font=self.__label_font2, bg="#c3e7fd")
         self.__postal_label.pack(anchor="w", padx=80, pady=5)
         self.__postal = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__postal.pack(anchor="w", padx=80, pady=5)
         
     def emergency_name(self, frame):
         
-        self.__emergency_contact_label = Label(frame, text="Emergency Contact Information", fg="black", bg="#c3e7fd")
+        self.__emergency_contact_label = Label(frame, text="Emergency Contact Information", fg="#00219f", bg="#c3e7fd", font=self.__label_font5)
         self.__emergency_contact_label.pack(anchor="w", padx=15, pady=25) 
         
         # name textbox
-        self.__name_label = Label(frame, text="Name", fg="black", bg="#c3e7fd")
+        self.__name_label = Label(frame, text="Name", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__name_label.pack(anchor="w", padx=50, pady=15) 
         self.__emergency_name = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__emergency_name.pack(anchor="w", padx=50, pady=5)
  
     def emergency_email(self, frame):
         # email textbox
-        self.__email_label = Label(frame, text="Email", fg="black", bg="#c3e7fd")
+        self.__email_label = Label(frame, text="Email", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__email_label.pack(anchor="w", padx=50, pady=15) 
         self.__emergency_email = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__emergency_email.pack(anchor="w", padx=50, pady=5)
@@ -259,31 +271,32 @@ class AddContact:
     def emergency_phone(self, frame):
          
         #  phone_number textbox
-        self.__phone_number_label = Label(frame, text="Phone Number", fg="black", bg="#c3e7fd")
+        self.__phone_number_label = Label(frame, text="Phone Number", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__phone_number_label.pack(anchor="w", padx=50, pady=15)
         self.__emergency_phone_number = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__emergency_phone_number.pack(anchor="w", padx=50, pady=5)
  
     def emergency_address(self, frame):
         # address textbox
-        self.__address_label = Label(frame, text="Address", fg="black", bg="#c3e7fd")
+        self.__address_label = Label(frame, text="Address", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__address_label.pack(anchor="w", padx=50, pady=15)
         self.__emergency_address = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__emergency_address.pack(anchor="w", padx=50, pady=5)
     
     def emergency_relationship(self, frame):
         # relationship textbox
-        self.__relationship_label = Label(frame, text="Relationship", fg="black", bg="#c3e7fd")
+        self.__relationship_label = Label(frame, text="Relationship", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__relationship_label.pack(anchor="w", padx=50, pady=15)
         self.__emergency_relationship = Entry(frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff")
         self.__emergency_relationship.pack(anchor="w", padx=50, pady=5)
         
     def symptoms(self, frame):
+
             
         self.__radio1 = IntVar()
 
         # Have you recently tested covid-19 radiobutton
-        self.__quest1_label = Label(frame, text="Do you experience any symptoms related to Covid-19?\n Symptoms such as fever, cold, sore throat, cough, loss of smell/taste, etc.", fg="black", bg="#c3e7fd")
+        self.__quest1_label = Label(frame, text="Do you experience any symptoms related to Covid-19? Symptoms such as fever, cold, sore throat, cough, loss of smell/taste, etc.", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__quest1_label.pack(anchor="w", padx=50, pady=15)
         self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio1, value=1, bg="#c3e7fd")
         self.__option1_label.pack(anchor="w", padx=50, pady=5)
@@ -295,11 +308,11 @@ class AddContact:
         self.__radio3 = IntVar()
 
         # Have you recently tested covid-19 radiobutton
-        self.__quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black", bg="#c3e7fd")
+        self.__quest1_label = Label(frame, text="Have you recently tested for Covid-19?", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__quest1_label.pack(anchor="w", padx=50, pady=15)
-        self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio1, value=1, bg="#c3e7fd")
+        self.__option1_label = Radiobutton(frame, text="Yes", variable=self.__radio3, value=1, bg="#c3e7fd")
         self.__option1_label.pack(anchor="w", padx=50, pady=5)
-        self.__option2_label = Radiobutton(frame, text="No", variable=self.__radio1, value=0, bg="#c3e7fd")
+        self.__option2_label = Radiobutton(frame, text="No", variable=self.__radio3, value=0, bg="#c3e7fd")
         self.__option2_label.pack(anchor="w", padx=50, pady=5)
         
     def condition_ques2(self, frame):
@@ -307,13 +320,19 @@ class AddContact:
         self.__radio2 = IntVar()
 
         # Are you recently exposed to someone with covid-19 radiobutton
-        self.__quest2_label = Label(frame, text="Are you recently exposed to someone with Covid-19?", fg="black", bg="#c3e7fd")
+        self.__quest2_label = Label(frame, text="Are you recently exposed to someone with Covid-19?", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__quest2_label.pack(anchor="w", padx=50, pady=15)
         self.__option3_label = Radiobutton(frame, text="Yes", variable=self.__radio2, value=1, bg="#c3e7fd")
         self.__option3_label.pack(anchor="w", padx=50, pady=5)
         self.__option4_label = Radiobutton(frame, text="No", variable=self.__radio2, value=0, bg="#c3e7fd")
         self.__option4_label.pack(anchor="w", padx=50, pady=5)
 
+    def data_privacy(self, frame):
+
+        self.__data_privacy_var = BooleanVar()
+
+        self.__res_data_privacy = Checkbutton(frame, text="I hereby consent to the processing of the personal data under Data Privacy Act 10173", bg="#c3e7fd", font=self.__label_font4, variable=self.__data_privacy_var)
+        self.__res_data_privacy.pack(anchor="w", padx=50, pady=5)
 
     def submit_data(self):
         # Get values from entry buttons
@@ -335,79 +354,87 @@ class AddContact:
         symptoms_value = self.__radio3.get()
         condition_ques1_value = self.__radio1.get()
         condition_ques2_value = self.__radio2.get()
+        data_privacy_value = self.__data_privacy_var.get()
         
         # Clear all previous error messages
         self.clear_error_message()
 
+        # Validate all input fields
+        validation_passed = True
+
         # Validate the first name
         if not first_name_value.replace(" ", "").isalpha():
-            error_message = "Please enter a valid first name."
+            error_message = "❗Please enter a valid first name."
             self.show_error_message(self.__first_name_error_label, error_message)
 
         # Validate the middle name
         if not middle_name_value.replace(" ", "").isalpha():
-            error_message = "Please enter a valid middle name."
+            error_message = "❗Please enter a valid middle name."
             self.show_error_message(self.__middle_name_error_label, error_message)
 
         # Validate the surname
         if not surname_value.replace(" ", "").isalpha():
-            error_message = "Please enter a valid surname."
+            error_message = "❗Please enter a valid surname."
             self.show_error_message(self.__surname_error_label, error_message)
 
         # Validate the street address
         if not street_address_value.strip():
-            error_message = "Please enter a street address."
+            error_message = "❗Please enter a street address."
             self.show_error_message(self.__street_address_error_label, error_message)
 
         # Validate the city address
         if not city_address_value.replace(" ", "").isalpha():
-            error_message = "Please enter a valid city address."
+            error_message = "❗Please enter a valid city address."
             self.show_error_message(self.__city_address_error_label, error_message)
 
         # Validate the province
         if not province_value.replace(" ", "").isalpha():
-            error_message = "Please enter a valid province."
+            error_message = "❗Please enter a valid province."
             self.show_error_message(self.__province_error_label, error_message)
 
         # Validate the postal/zip code
         if not postal_value.isdigit() or len(postal_value) != 4:
-            error_message = "Please enter a valid postal/zip code."
+            error_message = "❗Please enter a valid postal/zip code."
             self.show_error_message(self.__postal_error_label, error_message)
             
         # Validate the email
         if not email_value.endswith("@gmail.com"):
-            error_message = "Please enter a valid email."
+            error_message = "❗Please enter a valid email."
             self.show_error_message(self.__email_error_label, error_message)
 
         # Validate the phone number
         if not phone_number_value.isdigit() or len(phone_number_value) != 11 or not phone_number_value.startswith("09"):
-            error_message = "Please enter a 11-digits phone number starting with '09'."
+            error_message = "❗Please enter a 11-digits phone number starting with '09'."
             self.show_error_message(self.__phone_number_error_label, error_message)
             
         # Validate the emergency contact name
         if not emergency_name_value.replace(" ", "").isalpha():
-            error_message = "Please enter a valid emergency contact name."
+            error_message = "❗Please enter a valid emergency contact name."
             self.show_error_message(self.__emergency_name_error_label, error_message)
             
         # Validate the emergency contact email
         if not emergency_email_value.endswith("@gmail.com"):
-            error_message = "Please enter a valid emergency contact email."
+            error_message = "❗Please enter a valid emergency contact email."
             self.show_error_message(self.__emergency_email_error_label, error_message)
 
         # Validate the emergency contact phone number
         if not emergency_phone_value.isdigit() or len(phone_number_value) != 11 or not phone_number_value.startswith("09"):
-            error_message = "Please enter an emergency contact 11-digits phone number starting with '09'."
+            error_message = "❗Please enter an emergency contact 11-digits phone number starting with '09'."
             self.show_error_message(self.__emergency_phone_number_error_label, error_message)
             
         # Validate the street address
         if not emergency_address_value.strip():
-            error_message = "Please enter an emergency contact address."
+            error_message = "❗Please enter an emergency contact address."
             self.show_error_message(self.__emergency_address_error_label, error_message) 
         
         # Validate the emergency relationship
         if not emergency_relationship_value.strip():
-            error_message = "Please state the relationship."
+            error_message = "❗Please state the relationship."
             self.show_error_message(self.__emergency_relationship_error_label, error_message)
+
+        if not data_privacy_value:
+            self.__submit_error_label.config(text="❗Please give consent to Data Privacy before submitting.", font=self.__label_font4)
+            validation_passed = False
 
         error_labels = [
             self.__first_name_error_label,
@@ -426,16 +453,19 @@ class AddContact:
             self.__emergency_relationship_error_label
         ]
 
+
         for label in error_labels:
             if label.cget("text") != "":
                 # If any error message is displayed, show error next to the submit button
-                self.__submit_error_label.config(text="Please fix the errors above before submitting.")
-                return
+                self.__submit_error_label.config(text="❗Please fix the errors above before submitting.", font=self.__label_font4)
+                validation_passed = False
+                break
 
-        # Save data only if all fields pass validation checks
-        self.save_data_to_file("contact_tracing_info.txt")
-        self.__submit_error_label.config(text="Data has been saved to the file.")
-        self.clear_all_inputs()
+        if validation_passed:
+            # Save data only if all fields pass validation checks
+            self.save_data_to_file("contact_tracing_info.txt")
+            self.__submit_error_label.config(text="Data has been saved to the file.", font=self.__label_font4)
+            self.clear_all_inputs()
         
         
     # Method to show error message

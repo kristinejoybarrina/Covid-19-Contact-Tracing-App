@@ -61,7 +61,23 @@ class SearchContact:
 
         self.display_search_results(self)
         
+    def go_back_to_search(self):
         
+        # Clear the current search results and display the search interface again
+        for widget in self.__contact_frame.winfo_children():
+            widget.destroy()
+
+        # Add the search bar and button for name search
+        self.__name_search_label = Label(self.__contact_frame, text="Search Name", fg="black", bg="#c3e7fd")
+        self.__name_search_label.pack(anchor="w", padx=50, pady=15)
+        self.__name_search_label = Label(self.__contact_frame, text="First Name, Middle Name, Surname, Suffix", fg="black", bg="#c3e7fd")
+        self.__name_search_label.pack(anchor="w", padx=50, pady=15)
+        self.__name_search_entry = Entry(self.__contact_frame, fg="black", width=50, font=("Helvetica", 12), bg="#f3faff", textvariable=self.__name_search_criteria)
+        self.__name_search_entry.pack(anchor="w", padx=50, pady=5)
+        self.__name_search_button = Button(self.__contact_frame, text="Search", command=self.search_contact_by_name)
+        self.__name_search_button.pack(anchor="w", padx=50, pady=5)
+
+
     def display_search_results(self):
         
         # Display the search results in the contact frame

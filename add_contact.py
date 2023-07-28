@@ -6,6 +6,7 @@ import csv
 
 class AddContact:
     
+    # Initialize a window
     def __init__(self, window):
 
         self.__window = window
@@ -46,7 +47,6 @@ class AddContact:
         label_font3 = Font(family="Helvetica", size=8)
         self.__label_font4 = Font(family="Helvetica", size=10, weight="bold")
         self.__label_font5 = Font(family="Helvetica", size=12, weight="bold")
-        
         
         # Create Labels
         title_label = Label(contact_frame, text="Contact Tracing Information", font=label_font, fg="black", bg="#c3e7fd")
@@ -124,13 +124,15 @@ class AddContact:
         self.__submit_error_label = Label(contact_frame, text="", fg="red", anchor="w", bg="#c3e7fd")
         self.__submit_error_label.pack(anchor="w", padx=50, pady=5)
         
+        # Exit button 1
         back_button1 = Button(contact_frame, text="Exit",width=5, activebackground="white", bg="red", fg="white", command=window.destroy)
         back_button1.place(x=20, y=25)
 
+        # Exit button 2
         back_button2 = Button(contact_frame, text="Exit",width=10, activebackground="white", bg="red", fg="white", command=window.destroy)
         back_button2.place(x=200, y=1850)
 
-
+    # Save data
     def save_data_to_file(self, filename):
         try:
             with open(filename, "a", newline="") as file:
@@ -276,8 +278,6 @@ class AddContact:
         self.__emergency_relationship.pack(anchor="w", padx=50, pady=5)
         
     def symptoms(self, frame):
-
-            
         self.__radio1 = IntVar()
 
         # Have you recently tested covid-19 radiobutton
@@ -289,7 +289,6 @@ class AddContact:
         self.__option2_label.pack(anchor="w", padx=50, pady=5)
         
     def condition_ques1(self, frame):
-        
         self.__radio3 = IntVar()
 
         # Have you recently tested covid-19 radiobutton
@@ -301,7 +300,6 @@ class AddContact:
         self.__option2_label.pack(anchor="w", padx=50, pady=5)
         
     def condition_ques2(self, frame):
-        
         self.__radio2 = IntVar()
 
         # Are you recently exposed to someone with covid-19 radiobutton
@@ -313,7 +311,6 @@ class AddContact:
         self.__option4_label.pack(anchor="w", padx=50, pady=5)
 
     def data_privacy(self, frame):
-
         self.__data_privacy_var = BooleanVar()
 
         self.__res_data_privacy = Checkbutton(frame, text="I hereby consent to the processing of my personal data under Data Privacy Act 10173.", bg="#c3e7fd", font=self.__label_font4, variable=self.__data_privacy_var)
@@ -451,7 +448,6 @@ class AddContact:
             self.__submit_error_label.config(text="Data has been saved to the file.", font=self.__label_font4)
             self.clear_all_inputs()
         
-        
     # Method to show error message
     def show_error_message(self, label, message):
         label.config(text=message)
@@ -474,7 +470,8 @@ class AddContact:
         self.__emergency_relationship_error_label.config(text="")
         
         self.__submit_error_label.config(text="")
-        
+    
+    # Clear all inputs when file is submitted
     def clear_all_inputs(self):
         self.__first_name.delete(0, END)
         self.__middle_name.delete(0, END)

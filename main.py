@@ -6,10 +6,5 @@ from user_interface import UserInterface
 
 # PSEUDOCODE
 
-# LET USER CHOOSE BETWEEN ADD CONTACT OR SEARCH
+# Call the UserInterface class to start the program
 UserInterface.main()
-
-# LET USER INPUT NEEDED DETAILS
-
-# SAVE INFORMATION OF USER IN A FILE
-# CREATE SEARCH BUTTON

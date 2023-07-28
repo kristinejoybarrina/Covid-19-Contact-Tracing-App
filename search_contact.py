@@ -6,7 +6,7 @@ from tkinter.font import Font
 class SearchContact:
     
     def __init__(self, window):
-
+        # Initialize a window
         self.__window = window
         self.__window.title("Search Contact")
         self.__window.geometry("1000x500")
@@ -55,6 +55,7 @@ class SearchContact:
         self.__results_label = tk.Label(self.__results_frame, text="", fg="black", font=self.__label_font4, bg="#c3e7fd")
         self.__results_label.pack(anchor="w", padx=350, pady=10)
 
+        # Show warning when there's invalid input
         self.__warning_label = tk.Label(window, text="", fg="red", font=self.__label_font4, bg="#c3e7fd")
         self.__warning_label.place(x=150, y=190)
 
@@ -68,7 +69,6 @@ class SearchContact:
     
     # Search data
     def search_data(self):
-        
         self.__warning_label.config(text="")
         self.__error_label.config(text="")
         search_query = self.__search_entry.get()
@@ -85,11 +85,9 @@ class SearchContact:
 
     # Find contact in csv file
     def find_contact(self, search_query):
-        
-        # Read the data from the CSV file
         search_results = []
-        
         try:
+            # Read csv file
             with open("contact_tracing_info.csv", "r") as file:
                 reader = csv.reader(file)
                 header = next(reader)  
@@ -100,15 +98,11 @@ class SearchContact:
                         search_results.append(row) 
         except FileNotFoundError:
             messagebox.showerror("Error", "Contact file not found. Please save some data first.")
-
         return search_results
 
     # Display the file in window
     def display_search_results(self, results):
-        
-        # Display the search results
         result_text = ""
-        
         for result in results:
             name = f"{result[0]} {result[1]} {result[2]} {result[3]}"
             email = result[4]

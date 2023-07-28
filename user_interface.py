@@ -1,4 +1,3 @@
-# user_interface.py
 from tkinter import *
 from tkinter.font import Font
 from PIL import Image, ImageTk
@@ -8,7 +7,7 @@ from search_contact import SearchContact
 class UserInterface:
 
     def main():
-        
+        # Initialize a window
         window = Tk()
         window.title("Trace Corona")
         window.geometry("1000x500")
@@ -20,7 +19,6 @@ class UserInterface:
         window.iconphoto(False, ImageTk.PhotoImage(image_icon))
 
         # Create Labels and Texts
-
         label_font = Font(family="Arial", size=15, weight="bold", slant="italic")
         label_font1 = Font(family="Arial", size=12, weight="bold")
 
@@ -87,6 +85,7 @@ class UserInterface:
         button_img = Image.open("exit_button.png")
         button_png = ImageTk.PhotoImage(button_img)
 
+        # Create exit button
         exit_button = Button(window, image=button_png, border=0, borderwidth=0, command=window.destroy)
         exit_button.image = button_png
         exit_button.place(x=810, y=350)

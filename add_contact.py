@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.font import Font
 import tkinter as tk
 from tkinter import messagebox
+import csv
 
 class AddContact:
     
@@ -131,49 +132,36 @@ class AddContact:
 
 
     def save_data_to_file(self, filename):
-            try:
-                with open(filename, "a") as file:
-                    file.write("--------------------------\n")
-                    file.write("Contact Tracing Information\n")
-                    file.write("                                  \n")
-                    file.write("Personal Contact Information\n")
-                    file.write("                                  \n")
-                    file.write(f"Name: {self.__first_name.get()} {self.__middle_name.get()} {self.__surname.get()} {self.__suffix.get()}\n")
-                    file.write(f"Email: {self.__email.get()}\n")
-                    file.write(f"Phone Number: {self.__phone_number.get()}\n")
-                    file.write(f"Street Address: {self.__street_address.get()}\n")
-                    file.write(f"City: {self.__city_address.get()}\n")
-                    file.write(f"Province: {self.__province.get()}\n")
-                    file.write(f"Postal/Zip Code: {self.__postal.get()}\n")
-                    file.write("                            \n")
-                    file.write("Emergency Contact Information\n")
-                    file.write("                                  \n")
-                    file.write(f"Name: {self.__emergency_name.get()}\n")
-                    file.write(f"Email: {self.__emergency_email.get()}\n")
-                    file.write(f"Phone Number: {self.__emergency_phone_number.get()}\n")
-                    file.write(f"Address: {self.__emergency_address.get()}\n")
-                    file.write(f"Relationship: {self.__emergency_relationship.get()}\n")
-                    file.write("                       \n")
-                    if self.__radio3.get() == 1:
-                        file.write("Have symptoms of Covid-19: Yes\n")
-                    else:
-                        file.write("Have symptoms of Covid-19: No\n")
-                    file.write("                                    \n")
-                    if self.__radio1.get() == 1:
-                        file.write("Recently tested for Covid-19: Yes\n")
-                    else:
-                        file.write("Recently tested for Covid-19: No\n")
-                    file.write("                                     \n")
-                    if self.__radio2.get() == 1:
-                        file.write("Recently exposed to someone with Covid-19: Yes\n")
-                    else:
-                        file.write("Recently exposed to someone with Covid-19: No\n")
-                    file.write("                       \n")
-                    file.write("--------------------------\n")
-                    file.write("                         \n\n")
-                tk.messagebox.showinfo("Success", "Data has been saved to the file.")
-            except Exception as e:
-                tk.messagebox.showerror("Error", f"Failed to save data: {e}")
+        
+        # Save file to csv file so it can be searched
+        try:
+            
+            with open(filename, "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow([
+                    self.__first_name.get(),
+                    self.__middle_name.get(),
+                    self.__surname.get(),
+                    self.__suffix.get(),
+                    self.__email.get(),
+                    self.__phone_number.get(),
+                    self.__street_address.get(),
+                    self.__city_address.get(),
+                    self.__province.get(),
+                    self.__postal.get(),
+                    self.__emergency_name.get(),
+                    self.__emergency_email.get(),
+                    self.__emergency_phone_number.get(),
+                    self.__emergency_address.get(),
+                    self.__emergency_relationship.get(),
+                    "Yes" if self.__radio3.get() == 1 else "No",
+                    "Yes" if self.__radio1.get() == 1 else "No",
+                    "Yes" if self.__radio2.get() == 1 else "No",
+                    "Yes" if self.__data_privacy_var.get() else "No"
+                ])
+            tk.messagebox.showinfo("Success", "Data has been saved to the file.")
+        except Exception as e:
+            tk.messagebox.showerror("Error", f"Failed to save data: {e}")
 
 
     def name(self, frame):
@@ -463,7 +451,7 @@ class AddContact:
 
         if validation_passed:
             # Save data only if all fields pass validation checks
-            self.save_data_to_file("contact_tracing_info.txt")
+            self.save_data_to_file("contact_tracing_info.csv")
             self.__submit_error_label.config(text="Data has been saved to the file.", font=self.__label_font4)
             self.clear_all_inputs()
         

@@ -132,10 +132,7 @@ class AddContact:
 
 
     def save_data_to_file(self, filename):
-        
-        # Save file to csv file so it can be searched
         try:
-            
             with open(filename, "a", newline="") as file:
                 writer = csv.writer(file)
                 writer.writerow([
@@ -319,7 +316,7 @@ class AddContact:
 
         self.__data_privacy_var = BooleanVar()
 
-        self.__res_data_privacy = Checkbutton(frame, text="I hereby consent to the processing of the personal data under Data Privacy Act 10173", bg="#c3e7fd", font=self.__label_font4, variable=self.__data_privacy_var)
+        self.__res_data_privacy = Checkbutton(frame, text="I hereby consent to the processing of my personal data under Data Privacy Act 10173.", bg="#c3e7fd", font=self.__label_font4, variable=self.__data_privacy_var)
         self.__res_data_privacy.pack(anchor="w", padx=50, pady=5)
 
     def submit_data(self):
@@ -441,7 +438,6 @@ class AddContact:
             self.__emergency_relationship_error_label
         ]
 
-
         for label in error_labels:
             if label.cget("text") != "":
                 # If any error message is displayed, show error next to the submit button
@@ -495,3 +491,7 @@ class AddContact:
         self.__emergency_email.delete(0, END)
         self.__emergency_address.delete(0, END)
         self.__emergency_relationship.delete(0, END)
+        
+        
+
+
